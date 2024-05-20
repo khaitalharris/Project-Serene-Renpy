@@ -21,7 +21,6 @@ image asset grimace = "images/char/tamati/grimace_mouth_i.png"
 image asset closed = "images/char/tamati/closed_eyes.png"
 
 
-#define Devon = Character("Devon")
 define npc2 = Character("npc2")
 define Manager = Character("Manager")
 define Phone = Character("AI")
@@ -51,20 +50,8 @@ define IcyGoblin = Character("Iced-Out Goblin")
 define Elowen = Character("Elowen")
 define Mage = Character("The Mage")
 
-image npc1_eyes_normal:
-    "npc1_eyes.png"
-    choice: 
-        pause 3
-    choice:
-        pause 6
-    choice: 
-        pause 4
-    "eye_closed.png"
-    pause 0.1
-    "eye_half.png"
-    pause 0.1
-    repeat
-            
+
+# Blob's layers and mouth movement            
 layeredimage npc1:
     always:
         "npc1.png"
@@ -123,7 +110,8 @@ layeredimage npc2:
 
 
 
-
+##### Experimental Stuff
 define nv = CharTemplate(quote=False, mode=nvl)
 image Serene neutral     = Portrait("Serene", "neutral", (0, 160), (-980, -160))
-
+image side Serene = "side_image.png"
+image npc1 cut = LayeredImageMask("npc1", mask="circle")

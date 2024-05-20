@@ -205,21 +205,41 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
+transform animated_button_show(time_delay):
+    alpha 0.0
+    xoffset 120
+    pause time_delay
+    parallel:
+        ease 0.3 xoffset 0
+    parallel:
+        easeout 0.2 alpha 1.0
+    on hide:
+        ease 0.4 alpha 0.0
+    
+
 screen choice(items):
     style_prefix "choice"
+    default time_delay = 0.1
 
     vbox:
-        for i in items:
-            textbutton i.caption action i.action
-
+        for i, item in enumerate(items, start=1):
+            textbutton item.caption:
+                action item.action
+                at animated_button_show(i * time_delay)
 
 style choice_vbox is vbox
 style choice_button is button
 style choice_button_text is button_text
 
-style choice_vbox:
-    xalign 0.5
-    ypos 405
+style choice_button:
+    hover_sound "hover2.mp3" 
+
+style choice_button:
+    activate_sound "select.mp3"
+
+style choice_vbox: 
+    xalign 1.0
+    ypos 600
     yanchor 0.5
 
     spacing gui.choice_spacing

@@ -2,18 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/story/chapter1.rpy", line 26: expected statement.
-    renpy.music.register_channel(name='ambience',
-                                     mixer='ambience',
-                                     loop=True, 
-                                     stop_on_mute=True,
-                                     tight=False,
-                                     file_prefix=u'',
-                                     file_suffix=u'',
-                                     buffer_queue=True,
-                                     movie=False,
-                                     framedrop=True,
-                                     default_volume=0.71) 
+The label annoying_devon1 is defined twice, at File "game/story/chapter1.rpy", line 52:
+        menu annoying_devon1:
+and File "game/story/chapter1.rpy", line 125:
+            menu annoying_devon1:
+
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sat May 11 21:53:25 2024
+Sun May 19 01:21:07 2024

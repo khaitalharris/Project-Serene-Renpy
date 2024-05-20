@@ -2,26 +2,19 @@
 
 
 
-transform hbounce:
-    ease .06 xoffset 24
-    ease .06 xoffset 0
-    ease .05 xoffset 20
-    ease .05 xoffset 0
-    ease .04 xoffset 16
-    ease .04 xoffset 0
-    ease .03 xoffset 12
-    ease .03 xoffset 0
-    ease .02 xoffset 8
-    ease .02 xoffset 0
-    ease .01 xoffset 4
-    ease .01 xoffset 0
-    ease .01 xoffset 0
+
 
 define config.emphasize_audio_channels = [ 'voice' ]
+define config.emphasize_audio_volume = .05
+define config.emphasize_audio_time = 0.5
+
 
 default wall_break = False
 
 default preferences.text_cps = 70
+
+
+
 
 
 transform flip:
@@ -29,13 +22,12 @@ transform flip:
 # The game starts here.
 
 label start:
-
     
     
         label chapter1:
             
        
-        play music"butterfly.mp3" volume 0.05
+        play music"butterfly.mp3" volume 0.1
         camera:
             perspective True
 
@@ -47,8 +39,6 @@ label start:
 
         scene office2
         play ambience "office.mp3" loop volume 0.3
-        
-
     
 
         # This shows a character sprite. A placeholder is used, but you can
@@ -63,7 +53,7 @@ label start:
         "The warm 4 pm glow slowly losing its battle to the cold, fluorescent lights." 
         "You hear muffled chatter around your cubicle."
         show npc1 at left, flip
-    
+        
         camera:
             pos (250, 750) zoom 2.0 
         $ lipsync(npc1, "Coworker1.wav", "Did you see the look on Patrick's face after that meeting?")
@@ -78,6 +68,7 @@ label start:
         $ lipsync(npc2, "Coworker2.wav", "Yeah...Today's gonna' be rough...")
         
         
+
         show npc2: 
             parallel:
                 hop
@@ -121,9 +112,9 @@ label start:
             Devon "Hey, Serene!"
             extend " Can I borrow your pen real fast?"
             Devon "I think I dropped it somewhere on my way back here."
-
+        
             menu annoying_devon1:
-                extend ""
+                extend "" 
                 "Ignore him.":
                     jump ignore_devon
                 "Humor him.":
@@ -323,7 +314,7 @@ label start:
             Panna "How many times have I told you-Read the manuscripts. Slowly."
             "Panna and Moonga continue to drone on" 
             Sunela "There's so much I need to tell you Miss serene!! Uhm...uh..."
-        menu :
+        menu:
             extend ""
             "*Encourage Sunela":
                 jump proceed2 
