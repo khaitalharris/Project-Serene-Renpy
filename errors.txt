@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label annoying_devon1 is defined twice, at File "game/story/chapter1.rpy", line 52:
-        menu annoying_devon1:
-and File "game/story/chapter1.rpy", line 125:
-            menu annoying_devon1:
-
+File "game/main/screens.rpy", line 1327: 'Play' is not a keyword argument or valid child of the screen statement.
+    Play(channel="se", file="audio/SFX/notify.mp3")
+        ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun May 19 01:21:07 2024
+Fri May 24 18:28:30 2024

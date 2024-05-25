@@ -185,6 +185,7 @@ label aelrie_chocolate1:
     extend " Back home Sea-salt truffles were really common!" 
     Aelrie "When I was little, we used to pack them in these cute little containers. My mother let me decorate them sometimes too!" 
     $ renpy.notify("You've unlocked: Context (!)")
+    pause(1)
     # - [Prompt: Context (!) Added. "Aelrie's Life back Home"] 
     Serene  "(laughs) That is cute." 
     Leif "Well, it looks like I happened to find the right person to try these out."

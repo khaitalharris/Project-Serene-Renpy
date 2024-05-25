@@ -94,6 +94,7 @@
         Elder "Yes...Good. Are you visualizing it?" 
         # - A prompt opens on the screen
         $ renpy.notify("You've unlocked: Context (!)")
+        pause(1)
         # - Insert Info card animation for this
         "Important information will now automatically be added to your journal for reference."
 

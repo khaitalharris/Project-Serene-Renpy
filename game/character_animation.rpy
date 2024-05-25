@@ -6,6 +6,9 @@ transform hop(linear):
     linear 0.5 ypos 0.5
     repeat
 
+transform flip:
+    xzoom -1.0
+
 transform exit_left:
     linear 2.0 xalign -5
 

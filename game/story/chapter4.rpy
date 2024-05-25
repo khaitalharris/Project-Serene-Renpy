@@ -39,6 +39,7 @@
     Serene "*huge sigh of relief* Okay...You got me. (nervous laughter)"
     "(Don't make Amara mad. Noted.)"
     $ renpy.notify("You've unlocked: Context (!)")
+    pause(1)
     # - [Notebook Update: Context (!) Added.]
     Amara "So, what are your plans for today, ma'am?"
     Serene "Good question. Uh, we're just figuring it out as we go I guess." 
@@ -144,6 +145,7 @@ menu:
 label leif_adventure2:
     Leif "(laughs) Did that bracelet give you mind-reading powers? Yes. My family stayed in the woods. We were in the fur trade."
     $ renpy.notify("You've unlocked: Context (!)")
+    pause(1)
     # - [Notebook Update: Context (!) Added.]
     Serene "Makes sense why you know so much about nature." 
     Serene "You didn't want to work with your parents?"

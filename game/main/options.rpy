@@ -50,10 +50,24 @@ define config.has_sound = True
 define config.has_music = True
 define config.has_voice = True
 
+define config.default_music_volume = 0.5
+define config.default_sfx_volume = 0.5
+define config.default_voice_volume = 1.0
+
+#define config.emphasize_audio_channels = [ 'voice' ]
+define config.emphasize_audio_volume = .05
+define config.emphasize_audio_time = 0.5
+
+style button:
+    hover_sound "hover3.mp3" 
+    activate_sound "select.mp3"
+
+define config.main_menu_music = "brazil_funk.mp3"
+
 init -160 python hide:
     renpy.music.register_channel("text", mixer="voice", loop=True, file_prefix='audio/se/')
     config.auto_channels = { "audio" : ( "sfx", "audio/se/", "" ) }
-    config.fade_music = 0.3
+    config.fade_music = 1.0
     
     config.quit_action = None
     config.predict_screen_statements = False
@@ -61,7 +75,9 @@ init -160 python hide:
 
     config.auto_voice = "voice/{id}.ogg"
     renpy.music.register_channel ("ambience")
-    config.emphasize_audio_channels = ("voice")
+    renpy.music.register_channel ("se", mixer="sound", loop=True)
+    renpy.music.register_channel("altMusic", loop=None)
+    #config.emphasize_audio_channels = ("voice")
     
 ## To allow the user to play a test sound on the sound or voice channel,
 ## uncomment a line below and use it to set a sample sound to play.
@@ -91,7 +107,7 @@ define config.exit_transition = dissolve
 
 ## Between screens of the game menu.
 
-define config.intra_transition = None
+define config.intra_transition = dissolve
 
 
 ## A transition that is used after a game has been loaded.

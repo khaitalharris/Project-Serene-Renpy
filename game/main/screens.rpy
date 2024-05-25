@@ -97,10 +97,10 @@ style frame:
 
 screen say(who, what):
     style_prefix "say"
-
+    
     window:
         id "window"
-
+            
         if who is not None:
 
             window:
@@ -135,8 +135,8 @@ style window:
     xfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
-
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    textalign 0.5
+    #background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
@@ -144,8 +144,8 @@ style namebox:
     xsize gui.namebox_width
     ypos gui.name_ypos
     ysize gui.namebox_height
-
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    textalign 0.5
+    #background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding gui.namebox_borders.padding
 
 style say_label:
@@ -161,6 +161,9 @@ style say_dialogue:
     ypos gui.dialogue_ypos
 
     adjust_spacing False
+
+define gui.name_text_outlines = [ (3, "#000000ce", 1, 1) ]
+define gui.dialogue_text_outlines = [ (3, "#000000ce", 1, 1) ]
 
 ## Input screen ################################################################
 ##
@@ -216,16 +219,53 @@ transform animated_button_show(time_delay):
     on hide:
         ease 0.4 alpha 0.0
     
+transform screen_choice_background: 
+    alpha 0.0
+    xoffset 120
+    pause time_delay
+    parallel:
+        ease 0.3 xoffset 0
+    parallel:
+        easeout 0.2 alpha 1.0
+    on hide:
+        ease 0.4 alpha 0.0
 
-screen choice(items):
+
+screen grid_choice(items, cols, rows, background = "unimportant"):
+    style_prefix "grid_choice"
+    default time_delay = 0.1
+
+    # Pad out the list of items to match the space.
+    $ padded_items = items + [ None ] * ( rows * cols - len(items))
+
+    add "gui/[background].png"
+
+    grid cols rows:
+        xalign 0.5
+        ypos 270
+        yanchor 0.5
+
+        spacing gui.choice_spacing
+
+        for i in padded_items:
+            if i is not None:
+                textbutton i.caption action i.action xsize 300
+            else:
+                null
+
+screen choice(items, background="unimportant"):
     style_prefix "choice"
     default time_delay = 0.1
+
+    add "gui/[background].png"
+    
 
     vbox:
         for i, item in enumerate(items, start=1):
             textbutton item.caption:
                 action item.action
                 at animated_button_show(i * time_delay)
+                
 
 style choice_vbox is vbox
 style choice_button is button
@@ -316,6 +356,7 @@ screen navigation():
         spacing gui.navigation_spacing
 
         if main_menu:
+            
 
             textbutton _("Start") action Start()
 
@@ -373,7 +414,7 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    add gui.main_menu_background 
 
     ## This empty frame darkens the main menu.
     frame:
@@ -1169,8 +1210,9 @@ screen confirm(message, yes_action, no_action):
     zorder 200
 
     style_prefix "confirm"
-
+    on "show" action Play(channel="sound", file="audio/SFX/confirm.mp3")
     add "gui/overlay/confirm.png"
+    
 
     frame:
 
@@ -1282,8 +1324,10 @@ style skip_triangle:
 
 screen notify(message):
 
+    on "show" action Play(channel="audio", file="notify.mp3")
     zorder 100
     style_prefix "notify"
+    
 
     frame at notify_appear:
         text "[message!tq]"
@@ -1295,6 +1339,8 @@ transform notify_appear:
     on show:
         alpha 0
         linear .25 alpha 1.0
+
+        
     on hide:
         linear .5 alpha 0.0
 
@@ -1304,6 +1350,7 @@ style notify_text is gui_text
 
 style notify_frame:
     ypos gui.notify_ypos
+    
 
     background Frame("gui/notify.png", gui.notify_frame_borders, tile=gui.frame_tile)
     padding gui.notify_frame_borders.padding
