@@ -1,4 +1,54 @@
-﻿
+﻿# CTC Indicator Animation
+image ctc_blink:
+    "gui/ctc_stars.png"
+    xpos 0.70 ypos 0.85
+    xanchor 1.0 yanchor 1.0
+    parallel:
+        alpha 0
+        ease 2.5 alpha 1.0
+        ease 2.5 alpha 0
+        repeat
+    parallel:
+        #around (.5, .5) 
+        subpixel True
+        #alignaround (.5, .5) 
+        #xalign .5 yalign .5
+        rotate_pad False
+        transform_anchor False
+        rotate 0
+        linear 20 rotate 360
+        #linear 10 clockwise radius 360 #5 seconds, 360 degrees
+        repeat  
+    
+image ctc_blink_serene:  
+    "gui/ctc_stars_serene.png"
+    xpos 0.85 ypos 1.0
+    xanchor 1.0 yanchor 1.0
+    parallel:
+        alpha 0
+        ease 2.5 alpha 1.0
+        ease 2.5 alpha 0
+        repeat
+    parallel:
+        subpixel True
+        rotate_pad False
+        transform_anchor False
+        rotate 0
+        linear 20 rotate 360
+        repeat  
+
+image continimg:
+        Text("→")
+        alpha 0.0
+        linear 0.1 alpha 1.0
+        pause 0.5
+        linear 0.1 alpha 0.0
+        pause 0.5
+        repeat
+     
+
+
+
 # "Walk" Animation
 transform hop(linear):
     ypos 0.5

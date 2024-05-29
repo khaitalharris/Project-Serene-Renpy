@@ -3,7 +3,7 @@ init python:
     import pygame
     import re
     
-    renpy.music.register_channel("lipsync", "sfx", False)
+    renpy.music.register_channel("lipsync", "voice", False)
     
     # Directory containing the lipsync data files
     lipsync_key_released = False  # Flag to track whether the Space or Enter key is released

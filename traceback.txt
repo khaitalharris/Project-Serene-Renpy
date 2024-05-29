@@ -1,102 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('sprite_mask.png') at 0x0000000004afb340>:
-  File "game/story/chapter2.rpy", line 258, in script
-    Amara "Haha, right this way, ma'am."
-  File "game/image_viewer.rpy", line 60, in open_image_viewer
-    renpy.invoke_in_new_context(renpy.call_screen, "_image_selecter")
-OSError: Couldn't find file 'sprite_mask.png'.
+While running game code:
+  File "game/story/chapter3.rpy", line 54, in script
+    jump Amara_solution0
+ScriptError: could not find label 'Amara_solution0'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story/chapter2.rpy", line 258, in script
-    Amara "Haha, right this way, ma'am."
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 2557, in execute
-    Say.execute(self)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 615, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\exports.py", line 1493, in say
-    who(what, *args, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\character.py", line 1394, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\character.py", line 1045, in do_display
-    display_say(who,
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\character.py", line 741, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2165, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 3201, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\layout.py", line 1202, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\behavior.py", line 548, in event
-    rv = run(action)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\behavior.py", line 395, in run
-    return action(*args, **kwargs)
-  File "game/image_viewer.rpy", line 60, in open_image_viewer
-    renpy.invoke_in_new_context(renpy.call_screen, "_image_selecter")
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\game.py", line 293, in invoke_in_new_context
-    return callable(*args, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\exports.py", line 3413, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2165, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2818, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 1352, in draw_screen
-    surftree = renpy.display.render.render_screen(
-  File "render.pyx", line 486, in renpy.display.render.render_screen
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\transform.py", line 957, in render
-    return RenderTransform(self).render(width, height, st, at)
-  File "accelerator.pyx", line 978, in renpy.display.accelerator.RenderTransform.render
-  File "accelerator.pyx", line 413, in renpy.display.accelerator.RenderTransform.render_child
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\image.py", line 513, in render
-    return wrap_render(self.target, width, height, st, at)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\image.py", line 316, in wrap_render
-    rend = render(child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\layout.py", line 1361, in render
-    surf = render(child,
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\layout.py", line 2275, in render
-    mr.place(self.mask, main=False)
-  File "render.pyx", line 1577, in renpy.display.render.Render.place
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\im.py", line 626, in render
-    return cache.get(self, render=True)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\im.py", line 309, in get
-    surf = image.load()
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\im.py", line 761, in load
-    raise e
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\im.py", line 711, in load
-    filelike = renpy.loader.load(self.filename, directory="images")
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\loader.py", line 672, in load
-    raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'sprite_mask.png'.
+  File "game/story/chapter3.rpy", line 54, in script
+    jump Amara_solution0
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1698, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'Amara_solution0'.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 Project Serene 1.0
-Fri May 24 23:15:38 2024
+Mon May 27 19:11:41 2024

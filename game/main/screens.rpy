@@ -95,9 +95,32 @@ style frame:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
+# The dialogue window transformation.
+# Fades in and eases from the bottom.
+
+transform WindowEaseBottom:
+        on show:
+            alpha 0.0
+            parallel:
+                linear 0.5 alpha 1.0
+            parallel:
+                xalign 0.5 yalign 1.0
+                linear 0.5 yoffset -10
+        on hide:
+            alpha 1.0
+            parallel:
+                xalign 0.5 yalign 1.0
+                linear 0.5 yalign 1.0 yoffset -30
+            parallel:
+                linear 0.5 alpha 0.0
+
 screen say(who, what):
     style_prefix "say"
     
+    if who == "se":
+        window at WindowEaseBottom:
+            id "window"
+
     window:
         id "window"
             
@@ -115,6 +138,19 @@ screen say(who, what):
     ## phone variant - there's no room.
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
+
+    else:
+        window:
+            id "window"
+
+            if who is not None:
+
+                window:
+                    id "namebox"
+                    style "namebox"
+                    text who id "who"
+
+            text what id "what"
 
 
 ## Make the namebox available for styling through the Character object.
@@ -231,6 +267,8 @@ transform screen_choice_background:
         ease 0.4 alpha 0.0
 
 
+
+
 screen grid_choice(items, cols, rows, background = "unimportant"):
     style_prefix "grid_choice"
     default time_delay = 0.1
@@ -255,6 +293,8 @@ screen grid_choice(items, cols, rows, background = "unimportant"):
 
 screen choice(items, background="unimportant"):
     style_prefix "choice"
+
+    on "show" action Play("audio", "choice_show.mp3")
     default time_delay = 0.1
 
     add "gui/[background].png"
@@ -265,6 +305,8 @@ screen choice(items, background="unimportant"):
             textbutton item.caption:
                 action item.action
                 at animated_button_show(i * time_delay)
+
+    on "hide" action Play("audio", "cl_flip_phone.mp3")
                 
 
 style choice_vbox is vbox

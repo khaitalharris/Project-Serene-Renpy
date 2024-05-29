@@ -23,7 +23,7 @@ define gui.show_name = False
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = "1.1"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -50,8 +50,9 @@ define config.has_sound = True
 define config.has_music = True
 define config.has_voice = True
 
-define config.default_music_volume = 0.5
-define config.default_sfx_volume = 0.5
+
+define config.default_music_volume = 1.0
+define config.default_sfx_volume = 1.0
 define config.default_voice_volume = 1.0
 
 #define config.emphasize_audio_channels = [ 'voice' ]
@@ -76,7 +77,7 @@ init -160 python hide:
     config.auto_voice = "voice/{id}.ogg"
     renpy.music.register_channel ("ambience")
     renpy.music.register_channel ("se", mixer="sound", loop=True)
-    renpy.music.register_channel("altMusic", loop=None)
+    renpy.music.register_channel("altMusic", mixer="sound", loop=None)
     #config.emphasize_audio_channels = ("voice")
     
 ## To allow the user to play a test sound on the sound or voice channel,
@@ -148,7 +149,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 0
+default preferences.text_cps = 70
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0

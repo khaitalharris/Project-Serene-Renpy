@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/main/screens.rpy", line 1327: 'Play' is not a keyword argument or valid child of the screen statement.
-    Play(channel="se", file="audio/SFX/notify.mp3")
-        ^
+File "game/characters.rpy", line 26: positional argument follows keyword argument
+            renpy.music.play("shuffle.mp3", channel="audio", volume 0.5)
+                                                                     ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri May 24 18:28:30 2024
+Mon May 27 15:43:31 2024

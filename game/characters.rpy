@@ -11,7 +11,7 @@ image Devon grimace     = Portrait("tamati", "neutral", (298, 209, "scowl"), (33
 # Character definitions
 
 define nv      = CharTemplate(quote=False, mode=nvl)
-define Devon  = CharTemplate("Devon", file="vb_low1.ogg",         speaker=("tamati"))
+
 
 # Misc images
 image asset base = "images/char/tamati/neutral_base.png"
@@ -20,35 +20,42 @@ image asset mouth = "images/char/tamati/neutral_mouth.png"
 image asset grimace = "images/char/tamati/grimace_mouth_i.png"
 image asset closed = "images/char/tamati/closed_eyes.png"
 
-
-define npc2 = Character("npc2")
-define Manager = Character("Manager")
-define Phone = Character("AI")
-define narrator = Character (None)
-define Serene = Character("Serene")
-define Panna = Character("Panna")
-define Moonga = Character("Moonga")
-define Sunela = Character("Sunela")
-define npc1 = Character("npc1")
-define Statue = Character("Suspicious Statue")
-define Professor = Character("Professor")
-define Mama = Character("Mama")
-define Amara = Character("Amara")
-define Customer = Character("Customer") 
-define Elder = Character("Elder")
-define Bell = Character("Bell Man")
-define Leif = Character("Leif")
-define Trisha = Character("Trisha")
-define Customer6 = Character("Customer 6")
-define Customer7 = Character("Customer 7")
-define Customer9 = Character("Customer 9")
-define Customer12 = Character("Customer 12")
-define Aelrie = Character("Aelrie")
-define Troll1 = Character("Stoic Troll")
-define Troll2 = Character("Curious Troll")
-define IcyGoblin = Character("Iced-Out Goblin")
-define Elowen = Character("Elowen")
-define Mage = Character("The Mage")
+init python:
+    def character_callback(event, **kwargs):
+        if event == "end":
+            renpy.music.play("shuffle.mp3", channel="audio", relative_volume=0.3)
+    
+define letter = nvl_narrator
+define Devon  = CharTemplate("Devon", file="vb_low1.ogg",         speaker=("tamati"))
+define se = Character(None, ctc="ctc_blink_serene", ctc_position="fixed", callback=character_callback) #window_background=Frame("gui/textbox_back.png", 1, 1))
+define npc2 = Character("npc2", ctc="continimg")
+define Manager = Character("Manager", ctc="continimg", callback=character_callback)
+define Phone = Character("AI", ctc="continimg", callback=character_callback)
+define narrator = Character (None, ctc="ctc_blink", ctc_position="fixed", callback=character_callback)
+define Serene = Character("Serene", ctc="continimg", callback=character_callback)
+define Panna = Character("Panna", ctc="continimg", callback=character_callback)
+define Moonga = Character("Moonga", ctc="continimg", callback=character_callback)
+define Sunela = Character("Sunela", ctc="continimg", callback=character_callback)
+define npc1 = Character("npc1", ctc="continimg")
+define Statue = Character("Suspicious Statue", ctc="continimg", callback=character_callback)
+define Professor = Character("Professor", ctc="continimg", callback=character_callback)
+define Mama = Character("Mama", ctc="continimg", callback=character_callback)
+define Amara = Character("Amara", ctc="continimg", callback=character_callback)
+define Customer = Character("Customer", ctc="continimg", callback=character_callback) 
+define Elder = Character("Elder", ctc="continimg", callback=character_callback)
+define Bell = Character("Bell Man", ctc="continimg", callback=character_callback)
+define Leif = Character("Leif", ctc="continimg", callback=character_callback)
+define Trisha = Character("Trisha", ctc="continimg", callback=character_callback)
+define Customer6 = Character("Customer 6", ctc="continimg", callback=character_callback)
+define Customer7 = Character("Customer 7", ctc="continimg", callback=character_callback)
+define Customer9 = Character("Customer 9", ctc="continimg", callback=character_callback)
+define Customer12 = Character("Customer 12", ctc="continimg", callback=character_callback)
+define Aelrie = Character("Aelrie", ctc="continimg", callback=character_callback)
+define Troll1 = Character("Stoic Troll", ctc="continimg", callback=character_callback)
+define Troll2 = Character("Curious Troll", ctc="continimg", callback=character_callback)
+define IcyGoblin = Character("Iced-Out Goblin", ctc="continimg", callback=character_callback)
+define Elowen = Character("Elowen", ctc="continimg", callback=character_callback)
+define Mage = Character("The Mage", ctc="continimg", callback=character_callback)
 
 
 # Blob's layers and mouth movement            
