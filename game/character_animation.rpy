@@ -51,9 +51,9 @@ image continimg:
 
 # "Walk" Animation
 transform hop(linear):
-    ypos 0.5
-    linear 0.5 ypos 0.45
-    linear 0.5 ypos 0.5
+    yalign 1.0
+    linear 0.5 yalign 0.75
+    linear 0.5 yalign 1.0
     repeat
 
 transform flip:
@@ -77,6 +77,65 @@ image npc1_eyes_normal:
     "eye_half.png"
     pause 0.1
     repeat
+
+
+# Main Character's "blinking" Animation
+image generic_eyes_normal:
+    "char/generic/eyes_open_2.png"
+    choice:
+        pause 3
+    choice:
+        pause 6
+    choice:
+        pause 4
+    "char/generic/eyes_closed_2.png"
+    pause 0.1
+    "char/generic/eyes_halfway_2.png"
+    pause 0.1
+    repeat
+
+image generic_eyes_curious:
+    "char/generic/eyes_curious.png"
+    choice:
+        pause 3
+    choice:
+        pause 6
+    choice:
+        pause 4
+    "char/generic/eyes_closed_2.png"
+    pause 0.1
+    "char/generic/eyes_halfway_2.png"
+    pause 0.1
+    repeat
+
+image generic_eyes_mad:
+    "char/generic/eyes_mad.png"
+    choice:
+        pause 3
+    choice:
+        pause 6
+    choice:
+        pause 4
+    "char/generic/eyes_closed_2.png"
+    pause 0.1
+    "char/generic/eyes_halfway_2.png"
+    pause 0.1
+    repeat
+
+image generic_eyes_sad:
+    "char/generic/eyes_sad.png"
+    choice:
+        pause 3
+    choice:
+        pause 6
+    choice:
+        pause 4
+    "char/generic/eyes_closed_2.png"
+    pause 0.1
+    "char/generic/eyes_halfway_2.png"
+    pause 0.1
+    repeat
+    
 
 
 transform hbounce:
@@ -124,3 +183,13 @@ screen slide_sequence(): #Use "call screen slide_sequence" to use.
         action Return(True)
         xalign 0.5
         yalign 0.85
+
+
+# Scrolling Background Animation
+image scrolling_cave:
+    contains:
+        "BG_Images/scrolling_cave_bg.png"
+        xalign 0.0
+        linear 60.0 xalign 1.0
+        repeat
+

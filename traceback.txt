@@ -1,22 +1,54 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story/chapter3.rpy", line 54, in script
-    jump Amara_solution0
-ScriptError: could not find label 'Amara_solution0'.
+  File "game/story/chapter1.rpy", line 48, in script
+    call screen tooltip_test
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+Exception: Cannot compile ATL Transform at game/main/screens.rpy:248, as it's missing positional parameter time_delay.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story/chapter3.rpy", line 54, in script
-    jump Amara_solution0
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1698, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'Amara_solution0'.
+  File "game/story/chapter1.rpy", line 48, in script
+    call screen tooltip_test
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1968, in execute
+    self.call("execute")
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1950, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\statements.py", line 349, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\exports.py", line 3413, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2165, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2687, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 431, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 431, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 431, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\screen.py", line 485, in visit_all
+    self.child.visit_all(callback, seen=None)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 431, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 431, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 421, in visit_all
+    for d in self.visit():
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 764, in visit
+    block = self.compile()
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 653, in compile
+    raise Exception("Cannot compile ATL Transform at %s:%d, as it's missing positional parameter %s." % (
+Exception: Cannot compile ATL Transform at game/main/screens.rpy:248, as it's missing positional parameter time_delay.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
-Project Serene 1.0
-Mon May 27 19:11:41 2024
+Project Serene 1.2
+Mon Jul  1 23:25:40 2024

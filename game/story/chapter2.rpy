@@ -2,6 +2,7 @@
     scene town_street_night 
     with fade
     play ambience "ambience/night.mp3" volume 0.2
+    play music "balenci_night.mp3" volume 0.1
     narrator "It is now nightfall, with oil-lit lamps guiding your way through the town." 
     narrator "Even though there is movement of townsfolk and horse-pulled carriages, there is a calm ambience in the air."
 
@@ -33,6 +34,7 @@
         # - Just then, Amara catches a glimpse of Serene*
         play sound "SFX/wham.mp3" volume 0.75
         with vpunch
+        stop music fadeout 0.0
         pause(1.5)
         Amara "Now,{w=0.5} Who.{w=0.5} Is.{w=0.5} {i}That.{/i}{w=2.0} I'll be right back, Christine." 
         Amara "Here are the hairpins, we'll find a good color to match your dress."

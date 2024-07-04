@@ -23,7 +23,7 @@ define gui.show_name = False
 
 ## The version of the game.
 
-define config.version = "1.1"
+define config.version = "1.2"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -149,13 +149,17 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 70
+default preferences.text_cps = 0
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0
 ## to 30 being the valid range.
 
 default preferences.afm_time = 15
+
+## Hide the dialogue box when no dialogue is being spoken.
+
+default preferences.show_empty_window = False
 
 
 ## Save directory ##############################################################

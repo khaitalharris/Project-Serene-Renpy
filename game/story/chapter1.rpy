@@ -1,6 +1,6 @@
 ﻿# The script of the game goes in this file.
 
-
+$ Encyclopaedia = True
 
 
 
@@ -39,10 +39,14 @@ label start:
     
     
         label chapter1:
-        
+        $ calDate = calDate.replace(second=10, hour=12, minute=30, day=3, month=4, year=1503)
+        $ store.theweekday = 3
         $ quick_menu = False
         stop music
         scene black
+        default mtt = MouseTooltip(Text(""), padding={"x": 10, "y": -10})
+        #call screen tooltip_test
+        show screen DayDisplay
 
         show text "Monday, April 16th." with fade
         with Pause(3)
@@ -61,6 +65,7 @@ label start:
 
         
         scene office2 with fade
+        #show screen DayDisplay
         play ambience "office.mp3" loop volume 0.5
     
 
@@ -68,39 +73,42 @@ label start:
         # replace it by adding a file named "eileen happy.png" to the images
         # directory.
 
-        
 
         # These display lines of dialogue.
         $ quick_menu = True
         narrator "The fading sunlight streams through the office windows." 
         narrator "The warm, 4 P.M. glow slowly losing its battle to the cold, fluorescent lights." 
         narrator "You hear muffled chatter around your cubicle."
-        show npc1 at left, flip
+        #show npc1 at left, flip
         
+        show npc1_name at left:
+            yrotate 180.0 
+
         camera:
             pos (250, 750) zoom 2.0 
         $ lipsync(npc1, "Coworker1.wav", "Did you see the look on Patrick's face after that meeting?")
-        show npc2 at right
+        show npc2_name at right
         camera:
             subpixel True 
             pos (250, 750) zoom 2.0 
-            linear 1.00 pos (1500, 751) zoom 2.0 
-        with Pause(1.10)
-        camera:
-            pos (1500, 751) zoom 2.0 
+            ease 0.3 pos (1500, 751) zoom 2.0 
+        #with Pause(1.10)
+        #camera:
+            #pos (1500, 751) zoom 2.0 
         $ lipsync(npc2, "Coworker2.wav", "Yeah...Today's gonna' be rough...")
+        pause 0.1
         
         
 
-        show npc2: 
+        show npc2_name: 
             parallel:
                 hop
             parallel:
                 linear 7.5 xalign 0.0
         
-        show npc1: 
-            pause 0.8
-            flip
+        show npc1_name at left: 
+            #pause 0.8
+            #flip
             parallel:
                 hop
             parallel:
@@ -108,25 +116,36 @@ label start:
             
         
         play sound "SFX/type_in.mp3" loop volume 0.05
+        scene 
+
+        camera:
+            subpixel True pos (1878, 652) zpos 1238.0 
+
+        show cubicle2
+        show cubicle2:
+            subpixel True blur 6.0
+
+        show cubicle1
+
+        show Serene:
+            subpixel True pos (0.3, 0.1) matrixtransform ScaleMatrix(1.95, 1.95, 1.0)*OffsetMatrix(0.0, 0.0, 0.0)*RotateMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0) 
+
+
+    
         narrator "Feelings of dread wash over you. You continue typing, trying to focus on the computer screen while keeping your composure." 
+        pause 0.1
+        show Devon behind cubicle1:
+            subpixel True xpos 1404 
+            ypos -0.05 
+            ease 1.04 ypos -0.34 
+        with Pause(1.14)
+        show Devon behind cubicle1:
+            pos (1404, -0.34)     
         narrator "A man peaks over the cubicle."
-        show Devon neutral at char_fade, right, close
 
-        window auto hide
-        camera:
-            subpixel True 
-            ypos 751 
-            linear 2.11 ypos 234 zoom 1.5 xpos 900
-        show office2:
-            subpixel True blur 4.0 blend None 
-        with Pause(2.21)
-        camera:
-            ypos 234 
-        window auto show
-
-        hide npc1 
+        hide npc1
+        hide npc1_name
         hide npc2 
-        with dissolve
         narrator "You see, your coworker, Devon, hovers over you like a lost puppy." 
         narrator "Devon was hired a month before you, but he gloms onto you like an imprinted duckling for some reason."
         jump see_devon
@@ -148,40 +167,87 @@ label start:
                     $ wall_break = True
                     jump ignore_devon
 
-        label ignore_devon:
-            show Devon scowl
+        label ignore_devon:       
+
             narrator "Your keyboard's keystrokes grow louder in an attempt to drown out his sorry attempt at consoling you."
             Devon "What's up? {w=2.0}You look worried.{w=1.0} Is it about the lay-offs...? {w=2.0}You'll be alright." 
             play sound "SFX/type_in.mp3" volume 0.1 loop
             camera:
-                linear 10.0 ypos 200 xpos 900 zoom 1.5 
-            
-            show Devon grimace
+                linear 10.0 ypos 300 zpos 900 
+
+            show Serene:
+                subpixel True 
+                blur 0.0 
+                linear 3.37 blur 4 
+            show cubicle1:
+                subpixel True
+                blur 0.0
+                linear 3.37 blur 4
+           
+            #show Devon grimace
             narrator "Ever eager to step on eggshells, Devon delves into an unsolicited therapy session." 
             narrator "So you type, louder and more deliberate, keystrokes firing out in an attempt to ignore this nonsense." 
             narrator "Devon does not relent."
-            show Devon neutral
+            #show Devon neutral
             Devon "I mean, they already fired like five people in our department, what are the odds they'd keep going? "
             stop sound
             narrator "You abruptly stop typing, and without turning your head, you shift your gaze to meet Devon's."
-            show Devon grimace
+            #show Devon grimace
+            show Devon smile
             narrator "He's looking at you with his signature smile." 
-            show Devon neutral
+            #show Devon neutral
             narrator " His bright attitude is almost blinding sometimes." 
+
+            camera:
+                subpixel True 
+                ease 2.0 pos (1950, 1035) zpos 1314.0 
+
+
+            show Serene:
+                linear 2 blur 0.0
+
+            show cubicle1:
+                linear 2 blur 0.0
+
             narrator "You take a deep breath before summoning the patience to respond."
             play sound "SFX/chair_with_wheels.mp3"
+            
+
+            window hide
+            camera:
+                subpixel True pos (1950, 495) zpos 1114.0 
+            show Serene:
+                subpixel True 
+                ypos 0.0 yrotate 0.0 
+                linear 0.61 ypos -0.12 yrotate 207.0 
+            with Pause(0.71)
+            show Serene mad:
+                ypos -0.12 yrotate 207.0 
+            window show
+
+
+
+
 
             Serene "Devon, I appreciate you but please. I just—" 
             #show office with hpunch 
             play sound "SFX/crash.mp3" volume 0.5
-            show Devon with hpunch
-            stop music 
+            with hpunch
+            stop music fadeout 0.0
+            
             pause 2.0
-            narrator "You are suddenly interrupted by an authoritative voice booming over your cubicle." 
-
+            narrator "You are suddenly interrupted by an authoritative voice booming over your cubicle."
+            show Devon surprise 
+            show Serene curious:
+                ease 0.4 ypos -0.12 yrotate 0 blur 0.0
+            
             Devon "Op!" 
             
-            hide Devon
+            show Devon behind cubicle1:
+                subpixel True xpos 1404 
+                ypos -0.34 
+                ease 0.6 ypos -0.05 
+            with Pause(1.14)
 
             narrator "Devon ducks and quickly scurries back to his side of the cubicle." 
 
@@ -192,10 +258,13 @@ label start:
             narrator "The Manager walks back down the hallway, escorting an emotional, laid-off employee with security in tow." 
             narrator "Their cries linger in the stale office air like forlorn dissonance."   
             play music "beneath_mask.mp3" volume 0.1
+            show Serene normal:
+                ease 0.4 ypos 0 
             narrator "You sit blankly at your desk." 
             narrator "It feels like all the blood has drained from your body, your hands are like icicles." 
             se "(I hate this.  I hate this. I hate this. I hate this feeling. I HATE this.)" 
-            
+            show Serene:
+                yrotate 180
             #Serene breathes in and exhales deeply
             Serene "Just breathe.  Just. Breathe." 
             play sound "SFX/phone_notif.mp3" volume 0.5
@@ -203,6 +272,7 @@ label start:
             narrator "Your Phone chimes in your pocket. You've received a new message."
             #Serene reaches for Phone.
             play sound "SFX/confirm.mp3" volume 0.5
+            show Serene curious
             pause(1.5)
             Phone " Unknown Number - Principality of Balenci"
             
@@ -214,19 +284,23 @@ label start:
             se "(Principality of Balenci...? {w=1.0} What is this...?{w=1.0} A scam...?)"
             play sound "SFX/phone_down.mp3"
             pause(1)
+            show Serene normal smile
             narrator "Shaking your head you set your Phone down before laughing cathartically." 
         
             #Devon yells from across the cubicle
             Devon "That's right Serene! You're finally listening to what I've been telling you!!" 
+            show Serene curious meh
             Devon "You just need a positive attitude, and everything will be-" 
             Devon "Oh whats up...?" 
             Devon "You're on the Phone?!" 
+            show Serene ugh mouth_X
             Devon "Keep my voice down?!"
             Devon "Oh, my fault I...!" 
             
             narrator "Devon's voice starts to fade as if he is moving further and further away." 
             
             #Serene Internally:
+            show Serene normal
             se "(...Okay, yeah. Never mind. I'm over it today.)"
 
             narrator "You pick up your Phone, and without hesitating you reply (Y)."
@@ -237,13 +311,14 @@ label start:
             narrator "You look at the message in bewilderment." 
             
             #Serene Internally:
+            show Serene curious mouth_X
             se "(Huh. That's a new one. No Nigerian prince to give money to?)"
-
+            show Serene curious smile
             #Serene begins to laugh
             se "(I'm so dumb.)" 
             
             Phone " Shimmer will commence in 10 seconds."
-            
+            show Serene normal mouth_X
             se "(For a second there, I was really hoping something was going to happen...)"
             
             narrator "A flash of sparkling bright white light comes across the room and envelopes the world around you."
@@ -258,16 +333,33 @@ label start:
 
             #########################################################################################
             #The screen fades out from white to black.
-            scene cave4 
+            
+            show cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) 
+            
+            camera:
+                subpixel True pos (1896, 1080) zpos 1217.0 
+
+
             stop ambience 
             
             play ambience "ambience/cave.mp3" loop volume 0.5
             play music "cake.mp3" volume 0.05
-            camera:
-                subpixel True pos (3000, 2500) zpos 300.0 zoom 3.22
+            
+            show Moonga at flip with dissolve:
+                xalign -0.2 yalign 1.0
+                easein 1.0 xalign 0.2 
 
+
+                
             Moonga "Wait look! Something's happening!"
+            show Sunela at flip:
+                xalign -0.2 yalign 1.2
+                easein 1.0 xalign 0.0 
             Sunela "SEE! I TOLD YOU!!"
+            show Panna:
+                xalign 1.5 yalign 1.0
+                easein 1.0 xalign 1.0 
             Panna "Both of you...Relax."
             #A ring of small flames materializes around you.
             
@@ -276,33 +368,102 @@ label start:
             Sunela "HEY! Girls can be heroes too! I wonder what kind of powers she has." 
             Sunela "The book said they can do all kinds of stuff!"
             
+            scene cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0)
+            show Serene:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0)
+                xalign 0.5 yalign 1.0
+
+            
+            show cave6:
+                blur 6.0
+            camera:
+                subpixel True pos (0, 0) zpos -100.0 zoom 1.0
+                ease 10.0 zpos -300.0
+            show Serene:
+                subpixel True matrixtransform ScaleMatrix(1.0, 1.0, 1.0)*OffsetMatrix(0.0, 0.0, 468.0)*RotateMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0) 
+
+
             narrator "You stand in the middle of a bizarre, glowing circle." 
             narrator "As the flames dissipate, your eyes are drawn to three small figures standing around you." 
+            scene cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) 
+            camera:
+                subpixel True pos (1896, 1080) zpos 1217.0 zoom 2.0
+            show Moonga at flip:
+                xalign 0.2 yalign 1.0
+            show Sunela at flip:
+                xalign 0.0 yalign 1.2
+            show Panna:
+                xalign 1.0 yalign 1.0
             narrator "Three children in identical lizard suits stand before you." 
-            narrator "Wait."
             play sound "SFX/wham.mp3" volume 0.75
             with vpunch
-            stop music
-            pause(1.5)
+            stop music fadeout 0.0
+            pause(0.5)
+            narrator "Wait."
+            
+            scene cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) blur 6.0
+            show Serene:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0)
+                xalign 0.5 yalign 1.0
+            camera:
+                subpixel True pos (0, 0) zpos -100.0 zoom 1.0
+            show Serene:
+                subpixel True matrixtransform ScaleMatrix(1.0, 1.0, 1.0)*OffsetMatrix(0.0, 0.0, 468.0)*RotateMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0) 
             narrator "You rub your eyes in attempt to clear your vision. You look at the three small figures again."
-            
-            
+            scene cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) blur 6.0
+            camera:
+                subpixel True pos (4000, 2500) zpos 1217.0 zoom 3.0
+            show Moonga at flip:
+                xalign 0.5 yalign 1.0
+            show Sunela at flip:
+                xalign 0.3 yalign 1.2
+            show Panna:
+                xalign 0.85 yalign 1.0
             #Serene Internally
             se "(Those aren't costumes...)" 
             se "(Those are children...but they're {i}lizards{/i}?)"
-            se "(Those are {i}lizard{/i} children. That can't be right. Where {i}am I{/i}?)"
-            
-            Moonga "Hey Lady!{w=1} Do something cool...{w=2.0}like casting light magic out of your eyes or something."
+            se "(That can't be right. Where {i}am I{/i}?)"
+
+            Moonga "Hey Lady! {w=1.0}Do something cool...{w=2.0}like casting light magic out of your eyes or something."
 
             narrator "The angry lizard continues to stare at you with demanding impression."
+
             Panna "Let me see the book again. I'm certain we casted the spell incorrectly."
+            show Moonga at flip:
+                xalign 0.5 yalign 1.0
+                parallel:
+                    yalign 1.0
+                    linear 0.5 yalign 0.75
+                    linear 0.5 yalign 1.0
+                    linear 0.5 yalign 0.75
+                    linear 0.5 yalign 1.0
+
+                parallel:
+                    easein 3.0 xalign 0.65
+
+            pause 1.5
             Sunela "Uhm. Excuse me, Miss, are you our hero?"
+
+            scene cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) blur 6.0
+            show Serene:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0)
+                xalign 0.5 yalign 1.0
+            camera:
+                subpixel True pos (0, 0) zpos 0.0 zoom 1.0
+            show Serene:
+                subpixel True matrixtransform ScaleMatrix(1.0, 1.0, 1.0)*OffsetMatrix(0.0, 0.0, 468.0)*RotateMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0) 
             
             narrator "Shakily, you manage to stand up and attempt to find your footing."
             
             Serene "Where am I...?"
             
-            
+            show black behind Serene with dissolve
+            hide cave6
             narrator "You briefly regain your composure before reality and time seemingly shifts and warps around you."
             play sound "SFX/ai_voice.mp3" loop
             
@@ -311,33 +472,56 @@ label start:
             Phone "Shimmer complete. Arrived at Destination: Principality of Balenci."
             
             narrator "Alarmed, you look around the cave frantically trying to discern where the voice was coming from."
+
+            show Serene curious:
+                yrotate 180
+                pause 1.0
+                yrotate 0
+                pause 1.0
+                yrotate 180
             
             se "(Am I having auditory hallunications? What is a Shimmer...? Does this have anything to do with that text earlier?!)"
             
             Phone "Good morning, Serene. The time is now 8:53 am."
             
             narrator "You look up at the cave ceiling, the rock walls cascade into the shadows, pooling around the centre like a dark lake." 
+
+            show Serene mad:
+                yrotate 0
             
-            Serene "You're not just a voice in my head, right? Please tell me Im not going any crazier than I already am." 
+            Serene "You're not just a voice in my head, right? Please tell me I'm not going any crazier than I already am." 
             
-            Phone "Query received: Activating \"Internal Audio Mode.\" Tachypnea and rapid heart rate detected." 
+            Phone "Query received:{w=2.0} Activating \"Internal Audio Mode.\" {w=1.5}Tachypnea and rapid heart rate detected." 
+            show Serene curious:
+                yrotate 180
             Phone "It appears you are under distress." 
-            Phone "Warning: Battery life at 10\%. Switching to Low Power Mode."
+            Phone "Warning:{w=2.0} Battery life at 10\%. {w=2.0}Switching to Low Power Mode."
+
             
             se "(Internal audio mode?  Low battery...? I knew this voice was familiar. {w=2.0}Is this my {i}phone{/i}?)"
             
-            Phone "Query received: This is the only phone signed into your account. {w=2.5}Powering down."
+            Phone "Query received:{w=2.0} This is the only phone signed into your account. {w=2.5}Powering down."
             stop sound 
             
             #Time resumes.
+            show Serene curious:
+                yrotate 0
+                pause 1.0
+                yrotate 180
+                pause 1.0
+                yrotate 0
             
             Serene "You can read my thoughts?! {w=1}This doesn't make any sense...! {w=2}Uh, power... on!"
+            show cave6 behind Serene with dissolve:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) blur 6.0
 
             pause 2.0
             
             narrator "An awkward silence pierces the cave." 
 
             pause 2.0
+
+            show Serene normal 
             
             narrator"The silence seems to elevate the atmospheric sounds of your surroundings." 
             narrator "The metronome of recurrent drips echoes through the cave." 
@@ -345,10 +529,56 @@ label start:
             play music "music/chill_vibe.mp3" volume 0.3
             Moonga "\"{i}Power on? {/i}\""
             #Moonga laughs hysterically 
+            scene cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) blur 6.0
+            camera:
+                subpixel True pos (4000, 2500) zpos 1217.0 zoom 3.0
+            show Moonga at flip:
+                xalign 0.65 yalign 1.0
+            show Sunela at flip:
+                xalign 0.3 yalign 1.2
+            show Panna:
+                xalign 0.85 yalign 1.0
             Moonga "Maaaan. She can't even cast any spells either. {w=1.5}She just keeps talking to herself."
-            
-            Sunela "Uhm... Miss...?"
+            show Moonga:
+                yrotate 180
+                ease 0.5 yrotate 0
+                parallel:
+                    yalign 1.0
+                    linear 0.5 yalign 0.75
+                    linear 0.5 yalign 1.0
+                    linear 0.5 yalign 0.75
+                    linear 0.5 yalign 1.0
+                    repeat
 
+                parallel:
+                    easein 10.0 xalign -0.2
+
+            show Panna:
+                yrotate 0
+                parallel:
+                    yalign 1.0
+                    linear 0.5 yalign 0.75
+                    linear 0.5 yalign 1.0
+                    linear 0.5 yalign 0.75
+                    linear 0.5 yalign 1.0
+                    repeat
+
+                parallel:
+                    easein 10.0 xalign -0.2
+            Sunela "Uhm... Miss...?"
+            show Sunela at flip:
+                xalign 0.3 yalign 1.2
+                parallel:
+                    yalign 1.2
+                    linear 0.3 yalign 0.95
+                    linear 0.3 yalign 1.2
+                    linear 0.3 yalign 0.95
+                    linear 0.3 yalign 1.2
+
+                parallel:
+                    easein 2.0 xalign 0.45
+            
             narrator "You spin your heels and turn around to face Sunela."
         
         
@@ -366,9 +596,28 @@ label start:
     
         label proceed:
             Sunela "Uh, uhm. I'm Sunela, Miss Serene!! These two are my big brothers {w=2.0}Panna and Moonga!" 
-            narrator "Moonga fixes their gaze on you, looking mildly disappointed before introducing themself." 
+            hide Sunela
+
+            show cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) blur 6.0
+            camera:
+                subpixel True pos (2850, 2500)
+
+            show Moonga:
+                yrotate 0
+                xalign 0.2 yalign 1.0
+
+            show Panna:
+                yrotate 180
+                xalign 0.0 yalign 1.0
+
+            narrator "Moonga fixes their gaze on you, looking mildly disappointed before introducing themself."
+            show Moonga:
+                ease 0.5 yrotate 180 
             Moonga "...Nice to meet you, ma'am."
-        
+            show Moonga:
+                ease 0.35 yrotate 0
+          
             narrator "Without lifting his head, Panna looks up from his book. He corrects his wide framed glasses before introducing himself." 
         
             Panna "Yes. Hello." 
@@ -377,7 +626,14 @@ label start:
             Panna "How many times have I told you-"
             Panna "Read the manuscripts. {w=1.0}{i}Slowly.{/i}"
             narrator "Panna and Moonga continue to drone on..." 
-            Sunela "There's so much I need to tell you Miss serene!! Uhm...uh..."
+            hide Moonga
+            hide Panna
+            camera:
+                subpixel True pos (4000, 2500) zpos 1217.0 zoom 3.0
+            show Sunela:
+                yrotate 180
+                yalign 1.2 xalign 0.45
+            Sunela "There's so much I need to tell you Miss Serene!! Uhm...uh..."
         menu:
             extend ""
             "Encourage Sunela.":
@@ -388,6 +644,20 @@ label start:
                 jump proceed2   
 
         label proceed2:
+            camera:
+                subpixel True pos (2850, 2500)
+            
+            hide Sunela
+
+            show Moonga:
+                yrotate 0
+                xalign 0.2 yalign 1.0
+
+            show Panna:
+                yrotate 180
+                xalign 0.0 yalign 1.0
+
+
             Panna "We'll have more time to talk later, Sunela. There's still that simulacrum preventing us from leaving."
 
         menu:
@@ -400,15 +670,75 @@ label start:
                 jump proceed3
 
         label proceed3:
+            show Moonga:
+                ease 0.5 yrotate 180 
             Moonga "The dumb thing won't let us out until we answer the riddle, but it doesn't make any sense at all!" 
             Moonga "That's why we needed a hero so they could smash it!"
+            hide Moonga
+            hide Panna
+            camera:
+                subpixel True pos (4000, 2500) zpos 1217.0 zoom 3.0
+            show Sunela:
+                yrotate 180
+                yalign 1.2 xalign 0.5
+            show Panna:
+                yrotate 180
+                parallel:
+                    yalign 1.0
+                    linear 0.5 yalign 0.85
+                    linear 0.5 yalign 1.0
+                    linear 0.5 yalign 0.85
+                    linear 0.5 yalign 1.0
+                    linear 0.5 yalign 0.85
+                    linear 0.5 yalign 1.0
+                    linear 0.5 yalign 0.85
+                    linear 0.5 yalign 1.0
+                parallel:
+                    ease 4.2 xalign 0.3
             Sunela "But the uh simula-watcha-ma-call-it isn't a bad guy!! It's just lonely and wants a friend!"
+
             Panna "Regardless...This poses a problem. We don't exactly have enough food to stay down here much longer. We need a plan."
+
+            show Sunela:
+                ease 0.5 yrotate 0
+
             Sunela "Oh!! I know!! Miss Serene can talk to it! She's really smart, I know she can figure it out!"
+            camera:
+                subpixel True pos (2850, 2500)
+            
+            hide Sunela
+            hide Panna
+
+            show Moonga:
+                yrotate 180
+                xalign 0.2 yalign 1.0
             Moonga "Yeah, right. Like she could figure it out. The riddle is so dumb." 
             Moonga "Let's just send her back and summon a {i}REAL{/i} hero. {w=2.0}Then we can just ask {i}HIM{/i} to smash it."
+            hide Moonga
+            camera:
+                subpixel True pos (4000, 2500) zpos 1217.0 zoom 3.0
+            show Sunela:
+                yrotate 180
+                yalign 1.2 xalign 0.5
+            show Panna:
+                yrotate 180
+                yalign 1.0 xalign 0.3
+                ease 0.5 yrotate 0
             Panna "Unfortunately, Miss Serene is all we've got for now." 
             Panna "I need more time to find a way to send her back."
+            show Panna:
+                ease 0.5 yrotate 180
+            show Sunela:
+                xalign 0.5 yalign 1.2
+                parallel:
+                    yalign 1.2
+                    linear 0.3 yalign 0.95
+                    linear 0.3 yalign 1.2
+                    linear 0.3 yalign 0.95
+                    linear 0.3 yalign 1.2
+
+                parallel:
+                    easein 2.0 xalign 0.55
             Sunela "Will you help us, Miss Serene?!"
 
         menu:
@@ -422,14 +752,61 @@ label start:
 
         label proceed4:
             stop music
-            show cave4 with fade
+            
+            scene scrolling_cave 
+            camera:
+                subpixel True pos (0, -0) zpos 0.0 zoom 1.01 
+
+            show Moonga:
+                xalign 0.1
+                yrotate 180
+                parallel:
+                    yalign 1.2
+                    linear 0.6 yalign 0.95
+                    linear 0.6 yalign 1.2
+                    linear 0.6 yalign 0.95
+                    linear 0.6 yalign 1.2
+                    repeat
+
+            show Panna:
+                xalign 0.3
+                yrotate 180
+                parallel:
+                    yalign 1.2
+                    linear 0.5 yalign 0.95
+                    linear 0.5 yalign 1.2
+                    linear 0.5 yalign 0.95
+                    linear 0.5 yalign 1.2
+                    repeat
+
+            show Sunela:
+                xalign 0.5
+                yrotate 180
+                parallel:
+                    yalign 1.4
+                    linear 0.45 yalign 1.15
+                    linear 0.45 yalign 1.4
+                    linear 0.45 yalign 1.15
+                    linear 0.45 yalign 1.4
+                    repeat
+
+            show Serene behind Sunela:
+                xalign 0.7
+                yrotate 180
+                parallel:
+                    yalign 1.4
+                    linear 0.6  yalign 1.2
+                    linear 0.6 yalign 1.4
+                    repeat
+            play music "fe_mystery.mp3" volume 0.2           
+            with fade
             narrator "The team walks further, their footsteps uneven and sounding like soft thuds against the cave floor."
             Sunela "There it is! The sim moo laba laba!!"
             #Panna notably unamused
             Panna "It's {i}Simulacrum.{/i}"
             Moonga "Well, it's about to sim moo la crumble after I'm done with it." 
             Moonga "Can we just not waste our time talking and move on?"
-        
+    
             narrator "Talk to the suspicious statue?"
         
         menu: 
@@ -443,10 +820,45 @@ label start:
                 jump statue_time
 
         label statue_time:
-            show cave4 with fade
+            scene cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) 
+            
+            camera:
+                subpixel True pos (3840, 2160) zpos 600.0 zoom 3.0
+
+
+            
+            with fade
             narrator "The statue opens its eyes, its gaze seemingly piercing through you. "
             Statue "Ah, a visitor most strange has arrived at my step. State the purpose of your passage."
             narrator "The statue gives a malevolent stare."
+            camera:
+                subpixel True pos (1780, 2160) zpos 600.0 zoom 3.0
+            show Serene:
+                xalign 0.35
+                yalign 1.8
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+            
+            show Sunela behind Serene:
+                xalign 0.25
+                yalign 1.8
+                yalign 1.9
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+
+            show Panna:
+                xalign 0.15
+                yalign 1.8
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+
+            show Moonga:
+                xalign 0.05
+                yalign 1.8
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+
             Panna "Interesting, that's a new response...{w=1.5}Wait, Serene!" 
             Panna "Choose your words carefully! I have an awful premonition about this."
 
@@ -460,10 +872,46 @@ label start:
                 jump investigate
 
         label investigate:
-            Statue "I see. An exit, you so desire. An exit, I may easily provide. The statue's eyes gives a yellow fluorescent glow."
-            Sunela "I don't like this. I've never seen her eyes do that before!"
+            scene cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) 
+            camera:
+                subpixel True pos (3840, 2160) zpos 600.0 zoom 3.0
+            Statue "I see. An exit, you so desire. An exit, I may easily provide." 
+            narrator "The statue's eyes gives a yellow fluorescent glow."
+            camera:
+                subpixel True pos (1780, 2160) zpos 600.0 zoom 3.0
+            show Serene:
+                xalign 0.35
+                yalign 1.8
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+            
+            show Sunela behind Serene:
+                xalign 0.25
+                yalign 1.8
+                yalign 1.9
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+
+            show Panna:
+                xalign 0.15
+                yalign 1.8
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+
+            show Moonga:
+                xalign 0.05
+                yalign 1.8
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+            Sunela "I don't like this. I've never seen its eyes do that before!"
             Moonga "I'm telling you guys, we need to get rid of it!!"
-            Statue "A foreshadowing comment. It appears our thoughts are alike. The statue's eyes shifts to a deep crimson hue."
+            scene cave6:
+                subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) 
+            camera:
+                subpixel True pos (3840, 2160) zpos 600.0 zoom 3.0
+            Statue "A foreshadowing comment. It appears our thoughts are alike."
+            narrator "The statue's eyes shifts to a deep crimson hue."
 
         menu:
             extend ""
@@ -477,6 +925,31 @@ label start:
                 jump worship
 
         label worship:
+            camera:
+                subpixel True pos (1780, 2160) zpos 600.0 zoom 3.0
+            show Serene:
+                xalign 0.35
+                yalign 1.8
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+            show Sunela behind Serene:
+                xalign 0.25
+                yalign 1.8
+                yalign 1.9
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+
+            show Panna:
+                xalign 0.15
+                yalign 1.8
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
+
+            show Moonga:
+                xalign 0.05
+                yalign 1.8
+                subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+                yrotate 180
         Sunela "Good idea Miss Serene!! What does the book say Panna?!"
         #Panna audibly a nervous wreck
         Panna "Y-Yes. I'm already looking. {w=0.8}Wait...{w=0.8}I see it...! {w=2.0}\"Only when its eyes turn deep red, does its heart shine a brilliant blue.\"" 
@@ -485,23 +958,63 @@ label start:
         #Panna tosses a brilliant blue sapphire bracelet.
         narrator "Without hesitation, you slip the bracelet on your wrist." 
         narrator "The blue sapphire shimmers against the light being cast from the statue's glowing eyes."  
+        scene cave6:
+            subpixel True matrixcolor InvertMatrix(0.0)*ContrastMatrix(1.33)*SaturationMatrix(1.0)*BrightnessMatrix(0.0)*HueMatrix(0.0) 
+        camera:
+            subpixel True pos (3840, 2160) zpos 600.0 zoom 3.0
         Statue "Ah, a strange identity finally revealed..." 
         Statue "You may pass...{w=1.5}But heed these words;" 
         Statue "Upon completion of the full cycle, your return shall be prompt." 
         Statue "Now leave."
+        camera:
+            subpixel True pos (1780, 2160) zpos 600.0 zoom 3.0
+        show Serene:
+            xalign 0.35
+            yalign 1.8
+            subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+            yrotate 180
+        show Sunela behind Serene:
+            xalign 0.25
+            yalign 1.8
+            yalign 1.9
+            subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+            yrotate 180
+
+        show Panna:
+            xalign 0.15
+            yalign 1.8
+            subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+            yrotate 180
+
+        show Moonga:
+            xalign 0.05
+            yalign 1.8
+            subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
+            yrotate 180
         Serene "Absolutely understood! {w=1.0} Leaving, leaving, leaving, thank you so much..! {w=2.0}"
+        scene cave_exit
+        camera:
+            subpixel True pos (0, 0) zpos 0.0 zoom 1.0
+
+
         narrator "As the lot of you scurry out of the cave, you approach a blindingly bright light leading outside."
         stop music
         stop ambience
         #- Scene Transition to Outside - ################################################################################
 
-        scene cave5
-        play music "apotos.mp3" volume 0.05
+        scene cave5      
+        camera:
+            subpixel True xpos 3100 zpos 785.0 ypos 2484 zoom 3.0
+        with fade
+
+
+        play ambience "ambience/windy_ambience.mp3" volume 0.4
+        play music "apotos.mp3" volume 0.1
         Sunela "We did it!! I knew Serene could do it!!"
         #*Still catching her breath* 
         Serene "Wow. That. That was actually kind of fun?" 
         Serene "Well, minus the whole possibly getting crushed to death thing, but still!"
-        Panna "That was purely a stroke of luck; I can't believe it. Well, Miss Serene, I think we owe you an apology."
+        Panna "That was purely a stroke of luck; I can't believe it. Miss Serene, I think we owe you an apology."
         Serene "What are you apologizing for?"
         Panna "For this...? All of this? For bringing you here?"
         Sunela "If anything, it's Moonga who should be apologizing!"
@@ -535,10 +1048,9 @@ label start:
 
         label camp_cave:
             scene forest
-            play ambience "ambience/windy_ambience.mp3" volume 0.4
             camera:
                 subpixel True pos (-1, 0) zpos -9.0 zoom 1.0 
-
+            with fade
             se "(We're almost there. It was a 3-hour walk, but it felt like an eternity.)" 
             se "(Walking along a dirt trail in heels? Nope. Not great. We don't like that.)"
             Sunela "We're almost here, Miss Serene!" 

@@ -91,6 +91,8 @@ define gui.main_menu_background = Movie(play = "images/main_menu.webm") #"gui/fo
 define gui.game_menu_background = "gui/game_menu.png"
 
 
+
+
 ## Dialogue ####################################################################
 ##
 ## These variables control how dialogue is displayed on the screen one line at a

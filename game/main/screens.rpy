@@ -412,6 +412,9 @@ screen navigation():
 
         textbutton _("Preferences") action ShowMenu("preferences")
 
+        ## Image Tools Button.
+        textbutton _("Image Tools") action ShowMenu("image_tools")
+
         if _in_replay:
 
             textbutton _("End Replay") action EndReplay(confirm=True)

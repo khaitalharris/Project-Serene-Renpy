@@ -55,7 +55,7 @@ init python:
             mouse_clicked = pygame.mouse.get_pressed()[0]
             keys = pygame.key.get_pressed()
             # Check for skip or user input keys (e.g., RETURN, SPACE, CTRL) to stop playback
-            if renpy.is_skipping() or touched or (keys[pygame.K_LCTRL] or keys[pygame.K_RCTRL]):
+            if renpy.is_skipping() or touched or (keys[pygame.K_LCTRL] or keys[pygame.K_RCTRL]) :
                 renpy.show(character_name + ' mouth_X')
                 renpy.music.stop(channel="lipsync")
                 renpy.store._history = True

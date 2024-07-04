@@ -1,0 +1,38 @@
+2024-06-07 03:16:05 UTC
+Windows-10-10.0.22631
+Ren'Py 8.2.1.24030407
+
+Early init took 0.10s
+Loading error handling took 0.05s
+Loading script took 22.34s
+Loading save slot metadata took 10.41s
+Loading persistent took 0.02s
+ - Init at game/main/gui.rpy:11 took 3.62344 s.
+Running init code took 3.72s
+Loading analysis data took 1.04s
+Analyze and compile ATL took 0.01s
+Reloading save slot metadata took 0.03s
+Index archives took 0.00s
+
+Full traceback:
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\main.py", line 582, in main
+    renpy.dump.dump(False)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\dump.py", line 262, in dump
+    os.rename(new, filename)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\Khait\\OneDrive\\Documents\\RenPy Games\\Project-Serene-Renpy\\game\\saves\\navigation.json.new' -> 'C:\\Users\\Khait\\OneDrive\\Documents\\RenPy Games\\Project-Serene-Renpy\\game\\saves\\navigation.json'
+
+After initialization, but before game start.
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\Khait\\OneDrive\\Documents\\RenPy GaInterface start took 0.85s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Fullscreen mode.
+Vendor: "b'ATI Technologies Inc.'"
+Renderer: b'AMD Radeon(TM) Graphics'
+Version: b'4.6.0 Compatibility Profile Context 22.40.56.02.230613'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
+Maximum texture size: 4096x4096
