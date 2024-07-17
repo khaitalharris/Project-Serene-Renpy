@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/main/time_screen.rpy", line 253: expected 'simple_expression' not found.
-    xpos  
-          ^
+File "game/story/chapter_1/Investigate_chapter1_screen.rpy", line 9: Line is indented, but the preceding rotate statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    text_test(15,10,0.8,2.0)
+    ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Tue Jul  2 00:11:31 2024
+Wed Jul 17 09:37:25 2024

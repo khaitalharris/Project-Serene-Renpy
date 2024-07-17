@@ -32,6 +32,7 @@ screen choice_time():
 
 #Menu that pops up at night. Options for going to bed, scheduling counselings, and checking mail.
 screen serene_room():
+    modal True
     frame:
         align(0.0, 0.0)
         xsize 1920

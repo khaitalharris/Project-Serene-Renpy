@@ -54,19 +54,21 @@ init -1500 python:
 screen tooltip_test:
     on "show" action Play("audio", "choice_show.mp3")
     default time_delay = 0.1
+    
     vbox:
         yalign 0.5
         xalign 0.25
         spacing 100
-        text "What number do you desire?":
-            at transform:
-                glow_outline(100, "#ff833588", num_passes=30, power=0.5)
+        text "What number do you desire?"
+            #at transform:
+                #glow_outline(100, "#ff833588", num_passes=30, power=0.5)
 
         textbutton "One.":
-            action Return(1)
+            
             hovered [SetField(mtt, 'redraw', True), mtt.Action(Text("The loneliest number."))] 
             unhovered SetField(mtt, 'redraw', False)
             at animated_button_show(0 * time_delay)
+            action Return(1)
 
         textbutton "Two.":
             action Return(2)
@@ -88,3 +90,7 @@ screen tooltip_test:
 
     add mtt
     on "hide" action Play("audio", "cl_flip_phone.mp3")
+
+
+    
+

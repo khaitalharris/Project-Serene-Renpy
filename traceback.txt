@@ -1,17 +1,17 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/story/chapter1.rpy", line 48, in script
-    call screen tooltip_test
+Compiling ATL code at game/story/chapter_1/Investigate_chapter1_screen.rpy:18
+  File "game/story/chapter_1/chapter1.rpy", line 108, in script
+    call screen serene_office_chapter1
   File "renpy/common/000statements.rpy", line 671, in execute_call_screen
     store._return = renpy.call_screen(name, *args, **kwargs)
-Exception: Cannot compile ATL Transform at game/main/screens.rpy:248, as it's missing positional parameter time_delay.
+Exception: Not a displayable: <store.WaveShader object at 0x00000000075dba90>
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story/chapter1.rpy", line 48, in script
-    call screen tooltip_test
+  File "game/story/chapter_1/chapter1.rpy", line 108, in script
+    call screen serene_office_chapter1
   File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1968, in execute
     self.call("execute")
   File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1950, in call
@@ -24,31 +24,43 @@ Full traceback:
     rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
   File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ui.py", line 301, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2165, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2687, in interact_core
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\screen.py", line 485, in visit_all
-    self.child.visit_all(callback, seen=None)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\displayable.py", line 421, in visit_all
-    for d in self.visit():
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 764, in visit
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2181, in interact
+    scene_lists.replace_transient()
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\scenelists.py", line 266, in replace_transient
+    self.remove(layer, tag, prefix=p if p is not None else prefix)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\scenelists.py", line 594, in remove
+    self.hide_or_replace(layer, remove_index, prefix)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\scenelists.py", line 505, in hide_or_replace
+    d = oldsle.displayable._in_current_store()._hide(now - st, now - at, prefix)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\screen.py", line 591, in _hide
+    c = d._hide(st, at, kind)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\transform.py", line 850, in _hide
+    self.update_state()
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\transform.py", line 1134, in update_state
+    fr = self.execute(self, self.st, self.at)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 703, in execute
     block = self.compile()
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 653, in compile
-    raise Exception("Cannot compile ATL Transform at %s:%d, as it's missing positional parameter %s." % (
-Exception: Cannot compile ATL Transform at game/main/screens.rpy:248, as it's missing positional parameter time_delay.
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 671, in compile
+    block = self.atl.compile(self.context)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 873, in compile
+    statements = [ i.compile(ctx) for i in self.statements ]
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 873, in <listcomp>
+    statements = [ i.compile(ctx) for i in self.statements ]
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 1688, in compile
+    return Parallel(self.loc, [i.compile(ctx) for i in self.blocks])
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 1688, in <listcomp>
+    return Parallel(self.loc, [i.compile(ctx) for i in self.blocks])
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 873, in compile
+    statements = [ i.compile(ctx) for i in self.statements ]
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 873, in <listcomp>
+    statements = [ i.compile(ctx) for i in self.statements ]
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 1188, in compile
+    child = renpy.easy.displayable(child)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\easy.py", line 145, in displayable
+    raise Exception("Not a displayable: %r" % (d,))
+Exception: Not a displayable: <store.WaveShader object at 0x00000000075dba90>
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 Project Serene 1.2
-Mon Jul  1 23:25:40 2024
+Wed Jul 17 09:52:46 2024

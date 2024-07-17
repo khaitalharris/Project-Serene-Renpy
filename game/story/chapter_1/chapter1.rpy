@@ -1,16 +1,12 @@
-﻿# The script of the game goes in this file.
+﻿
+# - This is the main script for Chapter 1 of Project Serene. Includes the code for an opening Splashscreen, and the variable for Encyclopaedia. 
+# (I'll move both of these into a seperate script later.)
 
-$ Encyclopaedia = True
+#######################################
 
+$ Encyclopaedia = True # Will probably delete later. Testing out the "Encyclopaedia" script.
 
-
-default wall_break = False
-
-
-
-# The game starts here.
-
-
+#######################################
 label splashscreen:
     scene black
     with Pause(2)
@@ -27,27 +23,22 @@ label splashscreen:
     show text "Project Serene" with dissolve
     with Pause(4)
     hide text with dissolve
-    
-    
-    
     return
 
+#########################################
+# - Main storyline progression starts here.
 
 label start:
-
-    
-    
-    
-        label chapter1:
+        #jump outline_test
+        label chapter1: # - calDate is setting up today's date for the "Time" screen. "store.theweekday" sets up the day of the week. We hide the quickmenu.
         $ calDate = calDate.replace(second=10, hour=12, minute=30, day=3, month=4, year=1503)
         $ store.theweekday = 3
         $ quick_menu = False
         stop music
         scene black
-        default mtt = MouseTooltip(Text(""), padding={"x": 10, "y": -10})
-        #call screen tooltip_test
+        default mtt = MouseTooltip(Text(""), padding={"x": 10, "y": -10}) # - Testing out a function where a message prompt appears when you hover over stuff.
+        call screen tooltip_test # - The screen for the message prompt.
         show screen DayDisplay
-
         show text "Monday, April 16th." with fade
         with Pause(3)
         hide text with fade
@@ -56,34 +47,17 @@ label start:
         play music"butterfly.mp3" volume 0.1
         camera:
             perspective True
-
         #camera at parallax
-
-        # Show a background. This uses a placeholder by default, but you can
-        # add a file (named either "bg room.png" or "bg room.jpg") to the
-        # images directory to show it.
-
-        
         scene office2 with fade
         #show screen DayDisplay
         play ambience "office.mp3" loop volume 0.5
-    
-
-        # This shows a character sprite. A placeholder is used, but you can
-        # replace it by adding a file named "eileen happy.png" to the images
-        # directory.
-
-
-        # These display lines of dialogue.
         $ quick_menu = True
         narrator "The fading sunlight streams through the office windows." 
         narrator "The warm, 4 P.M. glow slowly losing its battle to the cold, fluorescent lights." 
         narrator "You hear muffled chatter around your cubicle."
-        #show npc1 at left, flip
-        
+        #show npc1 at left, flip   
         show npc1_name at left:
             yrotate 180.0 
-
         camera:
             pos (250, 750) zoom 2.0 
         $ lipsync(npc1, "Coworker1.wav", "Did you see the look on Patrick's face after that meeting?")
@@ -95,43 +69,31 @@ label start:
         #with Pause(1.10)
         #camera:
             #pos (1500, 751) zoom 2.0 
-        $ lipsync(npc2, "Coworker2.wav", "Yeah...Today's gonna' be rough...")
+        $ lipsync(npc2, "Coworker2.wav", "Yeah...Today's gonna' be rough...") # - We have to use the lipsync variable here for the mouth flaps to work in sync with audio.
         pause 0.1
-        
-        
-
         show npc2_name: 
             parallel:
                 hop
             parallel:
                 linear 7.5 xalign 0.0
-        
         show npc1_name at left: 
             #pause 0.8
             #flip
             parallel:
                 hop
             parallel:
-                linear 7.5 xalign 0.0
-            
-        
+                linear 7.5 xalign 0.0     
         play sound "SFX/type_in.mp3" loop volume 0.05
         scene 
-
         camera:
             subpixel True pos (1878, 652) zpos 1238.0 
-
         show cubicle2
         show cubicle2:
             subpixel True blur 6.0
-
         show cubicle1
-
         show Serene:
-            subpixel True pos (0.3, 0.1) matrixtransform ScaleMatrix(1.95, 1.95, 1.0)*OffsetMatrix(0.0, 0.0, 0.0)*RotateMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0) 
-
-
-    
+            subpixel True pos (0.3, 0.1) matrixtransform ScaleMatrix(1.95, 1.95, 1.0)*OffsetMatrix(0.0, 0.0, 0.0)*RotateMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0)*OffsetMatrix(0.0, 0.0, 0.0)
+            blur 0.0 
         narrator "Feelings of dread wash over you. You continue typing, trying to focus on the computer screen while keeping your composure." 
         pause 0.1
         show Devon behind cubicle1:
@@ -142,7 +104,8 @@ label start:
         show Devon behind cubicle1:
             pos (1404, -0.34)     
         narrator "A man peaks over the cubicle."
-
+        $ renpy.say("", "A man peaks over the cubicle.", interact=False)
+        call screen serene_office_chapter1 
         hide npc1
         hide npc1_name
         hide npc2 
@@ -397,6 +360,8 @@ label start:
             show Panna:
                 xalign 1.0 yalign 1.0
             narrator "Three children in identical lizard suits stand before you." 
+            $ renpy.say("", "Three children in identical lizard suits stand before you.", interact=False) # renpy.say keeps the dialogue in place after calling a screen.
+            call screen serene_office_chapter1 
             play sound "SFX/wham.mp3" volume 0.75
             with vpunch
             stop music fadeout 0.0
@@ -979,13 +944,11 @@ label start:
             yalign 1.9
             subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
             yrotate 180
-
         show Panna:
             xalign 0.15
             yalign 1.8
             subpixel True matrixtransform ScaleMatrix(0.5, 0.5, 1.0)
             yrotate 180
-
         show Moonga:
             xalign 0.05
             yalign 1.8
@@ -995,8 +958,6 @@ label start:
         scene cave_exit
         camera:
             subpixel True pos (0, 0) zpos 0.0 zoom 1.0
-
-
         narrator "As the lot of you scurry out of the cave, you approach a blindingly bright light leading outside."
         stop music
         stop ambience
@@ -1006,8 +967,6 @@ label start:
         camera:
             subpixel True xpos 3100 zpos 785.0 ypos 2484 zoom 3.0
         with fade
-
-
         play ambience "ambience/windy_ambience.mp3" volume 0.4
         play music "apotos.mp3" volume 0.1
         Sunela "We did it!! I knew Serene could do it!!"
@@ -1185,8 +1144,5 @@ label start:
             stop music
 
             jump chapter2
-
-
-    # This ends the game.
 
     
