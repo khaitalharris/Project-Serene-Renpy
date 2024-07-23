@@ -1,6 +1,21 @@
 ﻿
 # - This is the main script for Chapter 1 of Project Serene. Includes the code for an opening Splashscreen, and the variable for Encyclopaedia. 
-# (I'll move both of these into a seperate script later.)
+# - (I'll move both of these into a seperate script later.)
+# - We can temporarily stop the roll-back feature by using:
+#label start:
+#    "Dialogue 1"
+#    "Dialogue 2"
+#    "Dialogue 3"
+#    $ config.rollback_enabled = False
+#    "Dialogue 4"
+#    "Dialogue 5"
+#    $ renpy.block_rollback()
+#    $ config.rollback_enabled = True
+#   "Dialogue 6"
+#   "Dialogue 7"
+# "So basically the player can roll back to 1 as late as 3. They can't roll back at all after that until they get to 7."
+# "The "block rollback" line serves to purge the history of 4 and 5." https://www.reddit.com/r/RenPy/comments/qaxfh0/is_it_possible_to_disable_rollback_for_a_portion/
+
 
 #######################################
 
@@ -106,6 +121,15 @@ label start:
         narrator "A man peaks over the cubicle."
         $ renpy.say("", "A man peaks over the cubicle.", interact=False)
         call screen serene_office_chapter1 
+        menu annoying_devon1:
+                narrator "A man peaks over the cubicle." 
+                "Finish typing your e-mail.":
+                    jump ignore_devon
+                "Stop working and talk to your coworker.":
+                    $ renpy.notify("You've unlocked: Context (!)")
+                    pause(1.5)
+                    $ wall_break = True
+                    jump ignore_devon
         hide npc1
         hide npc1_name
         hide npc2 
@@ -113,46 +137,52 @@ label start:
         narrator "Devon was hired a month before you, but he gloms onto you like an imprinted duckling for some reason."
         jump see_devon
 
-        label see_devon:
+        label see_devon: # - Delete this label later if no longer useful.
             Devon "Hey, Serene!"
             extend " Can I borrow your pen real fast?"
             Devon "I think I dropped it somewhere on my way back here."
             
             #Alternate choice screen is -  (screen = "grid_choice", cols = 3, rows = 1)
             #After unlocking your first "Context" display an information box description.
-            menu annoying_devon1:
-                extend "" 
-                "Ignore him.":
-                    jump ignore_devon
-                "Humor him.":
-                    $ renpy.notify("You've unlocked: Context (!)")
-                    pause(1.5)
-                    $ wall_break = True
-                    jump ignore_devon
+            #menu annoying_devon1:
+                #extend "" 
+                #"Ignore him.":
+                    #jump ignore_devon
+                #"Humor him.":
+                    #$ renpy.notify("You've unlocked: Context (!)")
+                    #pause(1.5)
+                    #$ wall_break = True
+                    #jump ignore_devon
 
         label ignore_devon:       
-
-            narrator "Your keyboard's keystrokes grow louder in an attempt to drown out his sorry attempt at consoling you."
-            Devon "What's up? {w=2.0}You look worried.{w=1.0} Is it about the lay-offs...? {w=2.0}You'll be alright." 
-            play sound "SFX/type_in.mp3" volume 0.1 loop
+            Devon "Hey, Serene!"
+            extend " Can I borrow your pen real fast?"
+            Devon "I think I dropped it somewhere on my way back here."
+            Devon "..."
+            Devon "......"
+            Devon "............!"
+            Devon "What's up? {w=2.0}You look worried.{w=1.0} Is it about the lay-offs...?" 
+            
+            #narrator "Your keyboard's keystrokes grow louder in an attempt to drown out his sorry attempt at consoling you."
             camera:
                 linear 10.0 ypos 300 zpos 900 
 
             show Serene:
                 subpixel True 
                 blur 0.0 
-                linear 3.37 blur 4 
+                linear 6.0 blur 4 
             show cubicle1:
                 subpixel True
                 blur 0.0
-                linear 3.37 blur 4
+                linear 6.0 blur 4
            
             #show Devon grimace
             narrator "Ever eager to step on eggshells, Devon delves into an unsolicited therapy session." 
+            play sound "SFX/type_in.mp3" volume 0.2 loop
             narrator "So you type, louder and more deliberate, keystrokes firing out in an attempt to ignore this nonsense." 
             narrator "Devon does not relent."
             #show Devon neutral
-            Devon "I mean, they already fired like five people in our department, what are the odds they'd keep going? "
+            Devon "You'll be alright. I mean, they already fired like five people in our department, what are the odds they'd keep going? "
             stop sound
             narrator "You abruptly stop typing, and without turning your head, you shift your gaze to meet Devon's."
             #show Devon grimace
@@ -233,6 +263,8 @@ label start:
             play sound "SFX/phone_notif.mp3" volume 0.5
             pause(2.0)
             narrator "Your Phone chimes in your pocket. You've received a new message."
+            $ renpy.say("", "Your Phone chimes in your pocket. You've received a new message.", interact=False)
+            call screen serene_office_chapter1
             #Serene reaches for Phone.
             play sound "SFX/confirm.mp3" volume 0.5
             show Serene curious
@@ -265,7 +297,15 @@ label start:
             #Serene Internally:
             show Serene normal
             se "(...Okay, yeah. Never mind. I'm over it today.)"
-
+            menu:
+                extend "" 
+                "Reply to the message.":
+                    $ chapter1_status = 2
+                    pause(1.5)
+                "Get ready for your meeting with the manager.":
+                    $ renpy.notify("You've unlocked: Context (!)")
+                    pause(1.5)
+                    $ wall_break = True
             narrator "You pick up your Phone, and without hesitating you reply (Y)."
 
             Phone "Thank you for your response. It appears that you are in an unsatisfactory location." 
@@ -361,6 +401,7 @@ label start:
                 xalign 1.0 yalign 1.0
             narrator "Three children in identical lizard suits stand before you." 
             $ renpy.say("", "Three children in identical lizard suits stand before you.", interact=False) # renpy.say keeps the dialogue in place after calling a screen.
+            $ chapter1_status = 2
             call screen serene_office_chapter1 
             play sound "SFX/wham.mp3" volume 0.75
             with vpunch
@@ -826,9 +867,12 @@ label start:
 
             Panna "Interesting, that's a new response...{w=1.5}Wait, Serene!" 
             Panna "Choose your words carefully! I have an awful premonition about this."
+            $ renpy.say("Panna", "Choose your words carefully! I have an awful premonition about this.", interact=False) # renpy.say keeps the dialogue in place after calling a screen.
+            $ chapter1_status = 3
+            call screen serene_office_chapter1 
 
         menu:
-            extend ""
+            Panna "Choose your words carefully! I have an awful premonition about this."
             "Investigate the statue.":
                 jump investigate
             "Check around for another exit.":

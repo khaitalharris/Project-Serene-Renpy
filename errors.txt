@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/story/chapter_1/Investigate_chapter1_screen.rpy", line 9: Line is indented, but the preceding rotate statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    text_test(15,10,0.8,2.0)
-    ^
+File "game/plug-ins/encyclopaedia/screens.rpy", line 229: the xfill keyword argument was not given a value.
+    xfill=True
+         ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Wed Jul 17 09:37:25 2024
+Mon Jul 22 10:18:47 2024

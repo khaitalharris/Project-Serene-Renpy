@@ -57,6 +57,9 @@ transform text_test(x_movement, y_movement=10, x_speed=1.3, y_speed=2.5):
         ease y_speed yoffset 0
         ease y_speed yoffset y_movement
         repeat
+image white:
+    "#00000027"
+    blur 25.0
 
 transform rotate_text(rotation):
     rotate (rotation)

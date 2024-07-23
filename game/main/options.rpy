@@ -69,6 +69,9 @@ init -160 python hide:
     renpy.music.register_channel("text", mixer="voice", loop=True, file_prefix='audio/se/')
     config.auto_channels = { "audio" : ( "sfx", "audio/se/", "" ) }
     config.fade_music = 1.0
+
+    config.keymap['game_menu'].remove('mouseup_3') #Let's you except screens with right mouse click.
+    #config.keymap['dismiss'].append('mouseup_3')
     
     config.quit_action = None
     config.predict_screen_statements = False
@@ -102,13 +105,13 @@ init -160 python hide:
 
 ## Entering or exiting the game menu.
 
-define config.enter_transition = dissolve
-define config.exit_transition = dissolve
+define config.enter_transition = None#dissolve
+define config.exit_transition = None#dissolve
 
 
 ## Between screens of the game menu.
 
-define config.intra_transition = dissolve
+define config.intra_transition = None#dissolve
 
 
 ## A transition that is used after a game has been loaded.
@@ -118,7 +121,7 @@ define config.after_load_transition = None
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = None
+define config.end_game_transition = None#dissolve
 
 
 ## A variable to set the transition used when the game starts does not exist.

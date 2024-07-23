@@ -415,6 +415,8 @@ screen navigation():
         ## Image Tools Button.
         textbutton _("Image Tools") action ShowMenu("image_tools")
 
+        textbutton _("Encyclopaedia") action ShowMenu(my_encyclopaedia.list_screen, my_encyclopaedia)
+
         if _in_replay:
 
             textbutton _("End Replay") action EndReplay(confirm=True)

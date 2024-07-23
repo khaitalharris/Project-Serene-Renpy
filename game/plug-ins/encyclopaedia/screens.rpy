@@ -79,6 +79,7 @@ screen vertical_list(enc):
 screen encyclopaedia_list(enc):
     tag menu
     modal True
+    
 
     # Active entries get shown automatically.
     # Ugly, but due to how ShowMenu() works, we need to put this on the screen,
@@ -87,20 +88,29 @@ screen encyclopaedia_list(enc):
     on "show" action [
         If(enc.active, enc.SetEntry(enc.active)),
     ]
+    on "hide" action Play("audio", "close.mp3")
 
+
+    key "mousedown_3" action [enc.CloseActiveEntry(), Return()]
     frame:
+        background "#ffffff21"
+        at get_encyclopaedia(-1200)
         style_prefix "encyclopaedia"
         yfill True
         xsize 0.5
 
+    
+
         vbox:
             frame:
+                background "#ffffff21"
                 style_prefix "encyclopaedia"
                 xfill True
 
                 text enc.name
 
             frame:
+                background "#ffffff21"
                 style_prefix "encyclopaedia"
                 xfill True
 
@@ -110,6 +120,7 @@ screen encyclopaedia_list(enc):
                     text _("[enc.percentage_unlocked] % Complete") style "encyclopaedia_header_text"
 
             frame:
+                background "#ffffff21"
                 style_prefix "encyclopaedia"
                 xfill True
 
@@ -138,6 +149,7 @@ screen encyclopaedia_list(enc):
             vbox:
                 hbox:
                     frame:
+                        background "#ffffff21"
                         style_prefix "encyclopaedia"
                         ymaximum 1.0
 
@@ -153,6 +165,7 @@ screen encyclopaedia_list(enc):
                                 use vertical_list(enc) id "vertical list"
 
                 frame:
+                    background "#ffffff21"
                     style_prefix "encyclopaedia"
 
                     xfill True
@@ -180,19 +193,26 @@ screen encyclopaedia_list(enc):
 ################################################################################
 screen encyclopaedia_entry(enc):
     tag encyclopaedia_entry
+    key "mousedown_3" action enc.CloseActiveEntry()
+    on "hide" action Play("audio", "close.mp3")
+    
 
     frame:
+        background "#ffffff21"
+        at get_encyclopaedia(1000)
         style_prefix "encyclopaedia_entry"
 
         vbox:
             # Flavour text to indicate which entry we're currently on.
             frame:
+                background "#ffffff21"
                 style_suffix "label_frame"
 
                 text enc.active.label
 
             # Buttons to swap between pages.
             frame:
+                background "#ffffff21"
                 style_suffix "change_entry_frame"
                 id "entry_nav"
 
@@ -208,18 +228,32 @@ screen encyclopaedia_entry(enc):
                 spacing 8
                 # If the entry has an image
                 if enc.active.current_page.has_image:
-                    frame:
-                        style_prefix "encyclopaedia_entry_image"
-
-                        viewport:
+                    #frame:
+                    side "c":
+                        #xysize 973,209
+                        #top_margin 22
+                        #bottom_margin 22
+                        #left_margin 20
+                        #right_margin 20
+                        area (0, 10, 1200 ,600)
+                        
+                        #background "#0000009c"
+                        #style_prefix "encyclopaedia_entry_image"
+                        
+                        viewport id "glossery":
+                            
                             scrollbars None
                             draggable True
                             mousewheel True
-                            edgescroll (1.0, 1.0)
+                            edgescroll (50.0, 1.0)
 
-                            add enc.active.current_page.image
+                            add enc.active.current_page.image xalign 50.5 yalign 0.5
+                            
+
+                                
 
                 frame:
+                    background "#ffffff21"
                     style_prefix "encyclopaedia_entry_content"
                     id "entry_window"
 
@@ -239,6 +273,7 @@ screen encyclopaedia_entry(enc):
                                 text "[item]" style "encyclopaedia_entry_text"
 
             frame:
+                background "#ffffff21"
                 style_prefix "encyclopaedia"
                 xalign 1.0
                 xfill True
@@ -262,6 +297,7 @@ screen encyclopaedia_entry(enc):
                     text " " size 18 yalign 0.5
 
             frame:
+                background "#ffffff21"
                 style_prefix "encyclopaedia"
                 xfill True
 
@@ -276,6 +312,7 @@ screen encyclopaedia_entry(enc):
 ###
 screen dropdown(focus_name):
     frame:
+        background "#ffffffe8"
         button:
             padding (0, 0, 0, 0)
 
@@ -285,14 +322,14 @@ screen dropdown(focus_name):
                 xfill True
 
                 frame:
-                    background None
+                    background "#ffffffe8"
                     xsize 0.9
                     transclude
 
                 frame:
-                    background None
+                    background "#ffffffe8"
                     xfill True
-                    text "▼" style "dropdown_arrow"
+                    text "---▼" style "dropdown_arrow"
 
 
 ###
@@ -306,6 +343,7 @@ screen dropdown_options(focus_name):
             focus focus_name
 
             frame:
+                background "#ffffff21"
                 modal True
 
                 padding (6, 6, 6, 6)
@@ -441,6 +479,30 @@ style encyclopaedia_entry_change_entry_button_text is button_text:
 style encyclopaedia_entry_page_label:
     size 18
     yalign 0.5
+
+##########################
+# Encyclopaedia Transforms
+##########################
+
+transform get_encyclopaedia(direction):
+    subpixel True
+    #function WaveShader(period=10, amp=5.0, speed=0.005, direction='x')
+    on show:
+        parallel:
+            xoffset direction
+            ease 0.15 xoffset 0
+        parallel:
+            alpha 0.0
+            ease 0.15 alpha 1.0  
+    on hide: 
+        parallel:
+            xoffset 0
+            ease 0.15 xoffset direction
+        parallel:
+            alpha 1.0
+            ease 0.15 alpha 0.0  
+
+
 
 ##########################
 # Encyclopaedia Misc Setup

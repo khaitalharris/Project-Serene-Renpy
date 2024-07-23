@@ -1,5 +1,13 @@
+##############################
+# - This screen is used for the "Investigate (!)" mechanic. Includes "Think", "Talk", "Action", and "Explore".
+# - Each of these prompts sends the player to a label using the "Call" function. 
+# - The Call function will show text, and then return the player to their current conversation.
+# - Also disabled the "right-click" to show menu. The code is line 73 of "options.rpy"
+# - Good info on Viewports https://lemmasoft.renai.us/forums/viewtopic.php?t=50254
+
 screen serene_office_chapter1:
     on "show" action [Play("audio", "sword_draw.mp3"), mtt.Action(Text(""))]
+    
     add "#ffffff7e":
         xysize (0.5, 0.5)
         xalign 1.6
@@ -29,11 +37,6 @@ screen serene_office_chapter1:
             text_test(15,10,2.8,2.0)
     #[text_test(15,10,0.8,2.0), outline_transform(10, "#657bd5f8", smoothing= 5.0, mesh_pad=True)]:
         
-    
-    default x_movement = 30
-    default y_movement = 10
-    default x_speed = 1.3
-    default y_speed = 2.5
     vbox:
         yalign 1.35
         xalign 0.8
@@ -54,7 +57,7 @@ screen serene_office_chapter1:
             at [text_test(18, 10,1.5,2.8), outline_transform(10, "#ffffff4f", smoothing= 5.0, mesh_pad=True), rotate_text(5)]
 
         textbutton ("Action") style "choice_list":
-            action Return(2)
+            action CaptureFocus("investigate_action")
             hovered [SetField(mtt, 'redraw', True)]
             unhovered SetField(mtt, 'redraw', False)
             at [text_test(20,10,1.1,2.4), outline_transform(10, "#ffffff4f", smoothing= 5.0, mesh_pad=True), rotate_text(-7)]
@@ -64,6 +67,26 @@ screen serene_office_chapter1:
             hovered [SetField(mtt, 'redraw', True)]
             unhovered SetField(mtt, 'redraw', False)
             at [text_test(22), outline_transform(10, "#ffffff4f", smoothing= 5.0, mesh_pad=True), rotate_text(-20)]
+    if GetFocusRect("investigate_action"):
+        dismiss action ClearFocus("investigate_action")
+        key "mousedown_3" action ClearFocus("investigate_action")
+        
+        
+        nearrect:
+            focus "investigate_action"
+            #frame:
+                #background "black"
+            #modal True
+            vbox:
+                yalign 1.35
+                xalign 0.5
+                spacing -55
+                textbutton ("Encyclopaedia") style "choice_list": 
+                    action [ShowMenu(my_encyclopaedia.list_screen, my_encyclopaedia), ClearFocus("investigate_action")]
+                    at [text_test(15,10,0.8,2.0), outline_transform(10, "#ffffff4f", smoothing= 5.0, mesh_pad=True)]
+                    
+
+                
 
     add mtt
     on "hide" action Play("audio", "cl_flip_phone.mp3")    

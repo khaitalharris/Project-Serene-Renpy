@@ -1,66 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-Compiling ATL code at game/story/chapter_1/Investigate_chapter1_screen.rpy:18
-  File "game/story/chapter_1/chapter1.rpy", line 108, in script
-    call screen serene_office_chapter1
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-Exception: Not a displayable: <store.WaveShader object at 0x00000000075dba90>
+While loading the script.
+ScriptError: Name ('game/story/chapter1.rpy', 1717124899, 0) is defined twice, at game/story/chapter1.rpy:3 and game/story/chapter_1/chapter1.rpy:22.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story/chapter_1/chapter1.rpy", line 108, in script
-    call screen serene_office_chapter1
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1968, in execute
-    self.call("execute")
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1950, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\statements.py", line 349, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\exports.py", line 3413, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2181, in interact
-    scene_lists.replace_transient()
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\scenelists.py", line 266, in replace_transient
-    self.remove(layer, tag, prefix=p if p is not None else prefix)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\scenelists.py", line 594, in remove
-    self.hide_or_replace(layer, remove_index, prefix)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\scenelists.py", line 505, in hide_or_replace
-    d = oldsle.displayable._in_current_store()._hide(now - st, now - at, prefix)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\screen.py", line 591, in _hide
-    c = d._hide(st, at, kind)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\transform.py", line 850, in _hide
-    self.update_state()
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\transform.py", line 1134, in update_state
-    fr = self.execute(self, self.st, self.at)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 703, in execute
-    block = self.compile()
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 671, in compile
-    block = self.atl.compile(self.context)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 873, in compile
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 873, in <listcomp>
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 1688, in compile
-    return Parallel(self.loc, [i.compile(ctx) for i in self.blocks])
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 1688, in <listcomp>
-    return Parallel(self.loc, [i.compile(ctx) for i in self.blocks])
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 873, in compile
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 873, in <listcomp>
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\atl.py", line 1188, in compile
-    child = renpy.easy.displayable(child)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\easy.py", line 145, in displayable
-    raise Exception("Not a displayable: %r" % (d,))
-Exception: Not a displayable: <store.WaveShader object at 0x00000000075dba90>
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\main.py", line 455, in main
+    renpy.game.script.load_script() # sets renpy.game.script.
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\script.py", line 359, in load_script
+    self.load_appropriate_file(".rpyc", [ "_ren.py", ".rpy" ], dir, fn, initcode)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\script.py", line 957, in load_appropriate_file
+    self.finish_load(stmts, initcode, filename=lastfn) # type: ignore
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\script.py", line 590, in finish_load
+    check_name(node)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\script.py", line 566, in check_name
+    raise ScriptError("Name %s is defined twice, at %s:%d and %s:%d." %
+ScriptError: Name ('game/story/chapter1.rpy', 1717124899, 0) is defined twice, at game/story/chapter1.rpy:3 and game/story/chapter_1/chapter1.rpy:22.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 Project Serene 1.2
-Wed Jul 17 09:52:46 2024
+Mon Jul 22 22:32:44 2024

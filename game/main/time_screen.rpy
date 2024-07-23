@@ -246,7 +246,8 @@ image wavy_overlay:
         xpos -65 #xpos -75
         ypos -20 #ypos -20
     
-        function WaveShader(period=50, amp=0.5, speed=0.015, direction='x')
+        #function WaveShader(period=50, amp=0.5, speed=0.015, direction='x')
+        function WaveShader(period=50, amp=2, speed=0.015, direction='x')
     #function WaveShader(period=10, amp=5.0, speed=0.1, direction='x', double="x")
     contains:
         "overlay_tri_gold.png"
