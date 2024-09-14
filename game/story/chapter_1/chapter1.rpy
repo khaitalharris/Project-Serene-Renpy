@@ -25,7 +25,8 @@ $ Encyclopaedia = True # Will probably delete later. Testing out the "Encyclopae
 label splashscreen:
     scene black
     with Pause(2)
-    play ambience "Ocean.mp3" volume 0.5
+    #play ambience "Ocean.mp3" volume 0.5
+    play sound "Ocean.mp3" volume 0.5 loop 
     play music "brazil_funk.mp3" volume 0.5 fadein 5
     show text "Now Presenting..." with dissolve
     with Pause(4)
@@ -41,7 +42,7 @@ label splashscreen:
     return
 
 #########################################
-# - Main storyline progression starts here.
+# - Main storyline progression starts here. 𝔅𝔩𝔲𝔢 ℌ𝔬𝔯𝔦𝔷𝔬𝔫
 
 label start:
         #jump outline_test
@@ -49,6 +50,7 @@ label start:
         $ calDate = calDate.replace(second=10, hour=12, minute=30, day=3, month=4, year=1503)
         $ store.theweekday = 3
         $ quick_menu = False
+        $ chapter_status = 1
         stop music
         scene black
         default mtt = MouseTooltip(Text(""), padding={"x": 10, "y": -10}) # - Testing out a function where a message prompt appears when you hover over stuff.
@@ -58,6 +60,7 @@ label start:
         with Pause(3)
         hide text with fade
         stop ambience
+        stop sound fadeout 0.5
         window hide 
         play music"butterfly.mp3" volume 0.1
         camera:
@@ -120,7 +123,7 @@ label start:
             pos (1404, -0.34)     
         narrator "A man peaks over the cubicle."
         $ renpy.say("", "A man peaks over the cubicle.", interact=False)
-        call screen serene_office_chapter1 
+        call screen serene_office
         menu annoying_devon1:
                 narrator "A man peaks over the cubicle." 
                 "Finish typing your e-mail.":
@@ -130,6 +133,7 @@ label start:
                     pause(1.5)
                     $ wall_break = True
                     jump ignore_devon
+
         hide npc1
         hide npc1_name
         hide npc2 
@@ -1186,6 +1190,9 @@ label start:
             narrator "You promptly leave the family estate and head to Amara's shop."
             stop ambience
             stop music
+            show black with fade
+            show text "End Chapter 1." with dissolve
+            pause 
 
             jump chapter2
 

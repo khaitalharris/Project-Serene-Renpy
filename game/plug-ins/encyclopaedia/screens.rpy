@@ -77,6 +77,7 @@ screen vertical_list(enc):
 #        enc (Encyclopaedia): The encyclopaedia to use on this screen.
 ################################################################################
 screen encyclopaedia_list(enc):
+    add "abstract_background.jpg"
     tag menu
     modal True
     
@@ -93,7 +94,7 @@ screen encyclopaedia_list(enc):
 
     key "mousedown_3" action [enc.CloseActiveEntry(), Return()]
     frame:
-        background "#ffffff21"
+        background "#ffffff00"
         at get_encyclopaedia(-1200)
         style_prefix "encyclopaedia"
         yfill True
@@ -103,14 +104,14 @@ screen encyclopaedia_list(enc):
 
         vbox:
             frame:
-                background "#ffffff21"
+                background "#ffffff00"
                 style_prefix "encyclopaedia"
                 xfill True
 
                 text enc.name
 
             frame:
-                background "#ffffff21"
+                background "#ffffff00"
                 style_prefix "encyclopaedia"
                 xfill True
 
@@ -120,7 +121,7 @@ screen encyclopaedia_list(enc):
                     text _("[enc.percentage_unlocked] % Complete") style "encyclopaedia_header_text"
 
             frame:
-                background "#ffffff21"
+                background "#ffffff00"
                 style_prefix "encyclopaedia"
                 xfill True
 
@@ -149,7 +150,7 @@ screen encyclopaedia_list(enc):
             vbox:
                 hbox:
                     frame:
-                        background "#ffffff21"
+                        background "#ffffff00"
                         style_prefix "encyclopaedia"
                         ymaximum 1.0
 
@@ -165,7 +166,7 @@ screen encyclopaedia_list(enc):
                                 use vertical_list(enc) id "vertical list"
 
                 frame:
-                    background "#ffffff21"
+                    background "#ffffff00"
                     style_prefix "encyclopaedia"
 
                     xfill True
@@ -198,21 +199,21 @@ screen encyclopaedia_entry(enc):
     
 
     frame:
-        background "#ffffff21"
+        background "#ffffff00"
         at get_encyclopaedia(1000)
         style_prefix "encyclopaedia_entry"
 
         vbox:
             # Flavour text to indicate which entry we're currently on.
             frame:
-                background "#ffffff21"
+                background "#ffffff00"
                 style_suffix "label_frame"
 
                 text enc.active.label
 
             # Buttons to swap between pages.
             frame:
-                background "#ffffff21"
+                background "#ffffff00"
                 style_suffix "change_entry_frame"
                 id "entry_nav"
 
@@ -248,12 +249,13 @@ screen encyclopaedia_entry(enc):
                             edgescroll (50.0, 1.0)
 
                             add enc.active.current_page.image xalign 50.5 yalign 0.5
+            
                             
 
                                 
 
                 frame:
-                    background "#ffffff21"
+                    background "#ffffff00"
                     style_prefix "encyclopaedia_entry_content"
                     id "entry_window"
 
@@ -273,7 +275,7 @@ screen encyclopaedia_entry(enc):
                                 text "[item]" style "encyclopaedia_entry_text"
 
             frame:
-                background "#ffffff21"
+                background "#ffffff00"
                 style_prefix "encyclopaedia"
                 xalign 1.0
                 xfill True
@@ -297,7 +299,7 @@ screen encyclopaedia_entry(enc):
                     text " " size 18 yalign 0.5
 
             frame:
-                background "#ffffff21"
+                background "#ffffff00"
                 style_prefix "encyclopaedia"
                 xfill True
 
@@ -343,7 +345,7 @@ screen dropdown_options(focus_name):
             focus focus_name
 
             frame:
-                background "#ffffff21"
+                background "#ffffff00"
                 modal True
 
                 padding (6, 6, 6, 6)
@@ -386,7 +388,8 @@ style encyclopaedia_button is button
 style encyclopaedia_button_text is button_text
 
 style encyclopaedia_list_button is encyclopaedia_button:
-    background Solid("#000")
+    #Background color of the encyclopaedia's page titles
+    background Solid("#00000000")
     hover_background Solid(gui.hover_color)
     selected_background Solid(gui.accent_color)
     selected_hover_background Solid(gui.hover_color)

@@ -1,26 +1,51 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading the script.
-ScriptError: Name ('game/story/chapter1.rpy', 1717124899, 0) is defined twice, at game/story/chapter1.rpy:3 and game/story/chapter_1/chapter1.rpy:22.
+While running game code:
+  File "game/story/chapter_1/chapter1.rpy", line 126, in script
+    menu annoying_devon1:
+  File "game/story/chapter_1/chapter1.rpy", line 126, in script
+    menu annoying_devon1:
+TypeError: 'str' object is not callable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\bootstrap.py", line 359, in bootstrap
     renpy.main.main()
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\main.py", line 455, in main
-    renpy.game.script.load_script() # sets renpy.game.script.
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\script.py", line 359, in load_script
-    self.load_appropriate_file(".rpyc", [ "_ren.py", ".rpy" ], dir, fn, initcode)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\script.py", line 957, in load_appropriate_file
-    self.finish_load(stmts, initcode, filename=lastfn) # type: ignore
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\script.py", line 590, in finish_load
-    check_name(node)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\script.py", line 566, in check_name
-    raise ScriptError("Name %s is defined twice, at %s:%d and %s:%d." %
-ScriptError: Name ('game/story/chapter1.rpy', 1717124899, 0) is defined twice, at game/story/chapter1.rpy:3 and game/story/chapter_1/chapter1.rpy:22.
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\main.py", line 635, in main
+    run(restart)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\main.py", line 145, in run
+    renpy.execution.run_context(True)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\execution.py", line 955, in run_context
+    context.run()
+  File "game/story/chapter_1/chapter1.rpy", line 126, in script
+    menu annoying_devon1:
+  File "lib/python3.9/future/utils/__init__.py", line 444, in raise_
+  File "game/story/chapter_1/chapter1.rpy", line 126, in script
+    menu annoying_devon1:
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1618, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\exports.py", line 1109, in menu
+    rv = renpy.store.menu(new_items)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\exports.py", line 1364, in display_menu
+    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2165, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 3196, in interact_core
+    rv = renpy.display.focus.mouse_handler(ev, x, y)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\focus.py", line 610, in mouse_handler
+    return change_focus(new_focus, default=default)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\focus.py", line 543, in change_focus
+    rv = widget.focus(default=default)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\behavior.py", line 1013, in focus
+    rv = run(self.hovered)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\behavior.py", line 395, in run
+    return action(*args, **kwargs)
+TypeError: 'str' object is not callable
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 Project Serene 1.2
-Mon Jul 22 22:32:44 2024
+Sat Sep 14 14:48:25 2024

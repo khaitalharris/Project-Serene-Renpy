@@ -297,15 +297,28 @@ screen choice(items, background="unimportant"):
     on "show" action Play("audio", "choice_show.mp3")
     default time_delay = 0.1
 
-    add "gui/[background].png"
+    #add "gui/[background].png"
     
 
     vbox:
         for i, item in enumerate(items, start=1):
             textbutton item.caption:
                 action item.action
-                at animated_button_show(i * time_delay)
-
+                at [animated_button_show(i * time_delay), text_test(5,1,2.8,4.0)]
+        hbox:
+            textbutton _("RETURN") style_prefix "choice": 
+                #xoffset 500
+                action [Rollback()]
+                at [animated_button_show(i * time_delay), text_test(10,5,2.8,4.0), outline_transform(2, "#320efc67", smoothing= 5.0, mesh_pad=True)]
+            
+            imagebutton style_prefix "choice":
+                xoffset -560
+                yoffset 7
+                hover "return_icon_hover"
+                idle "return_icon"
+                action [Rollback()]
+                at [animated_button_show(i * time_delay), text_test(10,5,2.8,4.0), outline_transform(2, "#320efc67", smoothing= 5.0, mesh_pad=True)]
+    
     on "hide" action Play("audio", "cl_flip_phone.mp3")
                 
 
