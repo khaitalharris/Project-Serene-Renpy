@@ -5,6 +5,21 @@
 # - Also disabled the "right-click" to show menu. The code is line 73 of "options.rpy"
 # - Good info on Viewports https://lemmasoft.renai.us/forums/viewtopic.php?t=50254
 
+
+### This is the code for the investigate Screen's Icon. The icon is a chibi version of Serene that the player can click.
+### The icon shows an (!) when new interactable things that haven't been clicked yet are available.
+
+screen serene_icon:
+    imagebutton:
+        xalign 1.0 yalign 2.5
+        focus_mask True
+        idle "serene_icon" 
+        hover "serene_icon_highlighted"
+        action Play("audio", "cl_flip_phone.mp3")
+
+
+
+
 ### The Investigate screen is what the player uses to interact with the game. There is a seperate version of this screen for each chapter, but I need to streamline the system. 
 ### Having the same code copied across multiple chapters is a big nono, so working on that next.
 screen serene_office:

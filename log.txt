@@ -1,17 +1,18 @@
-2024-09-14 21:35:25 UTC
+2024-09-20 16:13:30 UTC
 Windows-10-10.0.22631
 Ren'Py 8.2.1.24030407
 
 Early init took 0.06s
 Loading error handling took 0.02s
-Loading script took 0.37s
+Loading script took 0.43s
 Loading save slot metadata took 0.04s
 Loading persistent took 0.00s
-Running init code took 0.06s
-Loading analysis data took 0.02s
+Running init code took 0.14s
+Loading analysis data took 0.03s
 Analyze and compile ATL took 0.01s
 Reloading save slot metadata took 0.03s
 Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Khait\\AppData\\Roaming/RenPy/backups\\Project-Serene-Renpy':
 Dump and make backups took 0.04s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
@@ -19,274 +20,7 @@ Initial gc took 0.04s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.18s
-Cleaning stores took 0.00s
-Init translation took 0.09s
-Build styles took 0.03s
-Load screen analysis took 0.04s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  if current_slide is 1:
-game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 2:
-game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 3:
-Prepare screens took 0.11s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.04s
-Running _start took 0.00s
-Interface start took 0.15s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 114.45s
-Loading error handling took 0.03s
-Loading script took 0.24s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.03s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.02s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Khait\\AppData\\Roaming/RenPy/backups\\Project-Serene-Renpy':
-Dump and make backups took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.06s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.15s
-Cleaning stores took 0.00s
-Init translation took 0.09s
-Build styles took 0.03s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.03s
-game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  if current_slide is 1:
-game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 2:
-game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 3:
-Prepare screens took 0.11s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.03s
-Running _start took 0.00s
-Interface start took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 182.53s
-Loading error handling took 0.02s
-Loading script took 0.17s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.03s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.02s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Khait\\AppData\\Roaming/RenPy/backups\\Project-Serene-Renpy':
-Dump and make backups took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.07s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.16s
-Cleaning stores took 0.00s
-Init translation took 0.10s
-Build styles took 0.04s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.03s
-game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  if current_slide is 1:
-game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 2:
-game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 3:
-Prepare screens took 0.13s
-Save pyanalysis. took 0.03s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.06s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 211.39s
-Loading error handling took 0.01s
-Loading script took 0.17s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.03s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.02s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Khait\\AppData\\Roaming/RenPy/backups\\Project-Serene-Renpy':
-Dump and make backups took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.07s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.15s
-Cleaning stores took 0.00s
-Init translation took 0.10s
-Build styles took 0.03s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.03s
-game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  if current_slide is 1:
-game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 2:
-game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 3:
-Prepare screens took 0.13s
-Save pyanalysis. took 0.03s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 594.39s
-Loading error handling took 0.02s
-Loading script took 0.18s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-
-File "game/main/investigate_screen.rpy", line 94: expected ':' not found.
-    label chapter_select
-                        ^
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.27s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 648.70s
-Loading error handling took 0.02s
-Loading script took 0.24s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-
-File "game/main/investigate_screen.rpy", line 94: expected ':' not found.
-    label chapter_select
-                        ^
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.24s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 657.86s
-Loading error handling took 0.02s
-Loading script took 0.21s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-
-File "game/main/investigate_screen.rpy", line 94: expected ':' not found.
-    label chapter_select
-                        ^
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.22s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 667.00s
-Loading error handling took 0.02s
-Loading script took 0.23s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.02s
-Reloading save slot metadata took 0.02s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Khait\\AppData\\Roaming/RenPy/backups\\Project-Serene-Renpy':
-Dump and make backups took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.05s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.16s
+Creating interface object took 0.19s
 Cleaning stores took 0.00s
 Init translation took 0.10s
 Build styles took 0.03s
@@ -301,9 +35,9 @@ game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you me
   elif current_slide is 3:
 Prepare screens took 0.14s
 Save pyanalysis. took 0.03s
-Save bytecode. took 0.02s
+Save bytecode. took 0.04s
 Running _start took 0.00s
-Interface start took 0.06s
+Interface start took 0.13s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -311,259 +45,15 @@ swap interval: 1 frames
 Fullscreen mode.
 Vendor: "b'NVIDIA Corporation'"
 Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
+Version: b'4.6.0 NVIDIA 555.99'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
 Maximum texture size: 4096x4096
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.03s
-Load screen analysis took 0.05s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
+controller: '030000004c050000e60c000000016800' 'PS5 Controller' 1
 Resetting cache.
-Early init took 960.91s
-Loading error handling took 0.02s
-Loading script took 0.17s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.03s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.02s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Khait\\AppData\\Roaming/RenPy/backups\\Project-Serene-Renpy':
-Dump and make backups took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.10s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.17s
-Cleaning stores took 0.00s
-Init translation took 0.11s
-Build styles took 0.03s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.03s
-game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  if current_slide is 1:
-game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 2:
-game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 3:
-Prepare screens took 0.12s
-Save pyanalysis. took 0.04s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.06s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1036.54s
-Loading error handling took 0.02s
-Loading script took 0.19s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.03s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Khait\\AppData\\Roaming/RenPy/backups\\Project-Serene-Renpy':
-Dump and make backups took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.08s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.15s
-Cleaning stores took 0.00s
-Init translation took 0.10s
-Build styles took 0.04s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.04s
-game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  if current_slide is 1:
-game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 2:
-game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 3:
-Prepare screens took 0.13s
-Save pyanalysis. took 0.03s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.06s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1050.35s
-Loading error handling took 0.02s
-Loading script took 0.15s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.03s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.03s
-Index archives took 0.00s
-Dump and make backups took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.08s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.16s
-Cleaning stores took 0.00s
-Init translation took 0.10s
-Build styles took 0.03s
-Load screen analysis took 0.04s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  if current_slide is 1:
-game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 2:
-game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 3:
-Prepare screens took 0.12s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Interface start took 0.07s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1121.42s
-Loading error handling took 0.02s
-Loading script took 0.17s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.03s
-Index archives took 0.00s
-Dump and make backups took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.09s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.18s
-Cleaning stores took 0.00s
-Init translation took 0.09s
-Build styles took 0.03s
-Load screen analysis took 0.04s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  if current_slide is 1:
-game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 2:
-game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 3:
-Prepare screens took 0.12s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Interface start took 0.06s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1194.31s
-Loading error handling took 0.02s
-Loading script took 0.23s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.03s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.02s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Khait\\AppData\\Roaming/RenPy/backups\\Project-Serene-Renpy':
-Dump and make backups took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.08s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.17s
-Cleaning stores took 0.00s
-Init translation took 0.09s
-Build styles took 0.03s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.03s
-game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  if current_slide is 1:
-game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 2:
-game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
-  elif current_slide is 3:
-Prepare screens took 0.12s
-Save pyanalysis. took 0.04s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Fullscreen mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1304.84s
-Loading error handling took 0.02s
-Loading script took 0.22s
+Early init took 218.81s
+Loading error handling took 0.03s
+Loading script took 0.18s
 Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
 Running init code took 0.03s
@@ -579,7 +69,7 @@ Initial gc took 0.07s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.15s
+Creating interface object took 0.19s
 Cleaning stores took 0.00s
 Init translation took 0.09s
 Build styles took 0.03s
@@ -592,7 +82,7 @@ game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you me
   elif current_slide is 2:
 game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
   elif current_slide is 3:
-Prepare screens took 0.12s
+Prepare screens took 0.13s
 Save pyanalysis. took 0.03s
 Save bytecode. took 0.02s
 Running _start took 0.00s
@@ -604,7 +94,106 @@ swap interval: 1 frames
 Fullscreen mode.
 Vendor: "b'NVIDIA Corporation'"
 Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 537.70'
+Version: b'4.6.0 NVIDIA 555.99'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
 Maximum texture size: 4096x4096
+controller: '030000004c050000e60c000000016800' 'PS5 Controller' 1
+Resetting cache.
+Early init took 276.73s
+Loading error handling took 0.02s
+Loading script took 0.25s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.01s
+Reloading save slot metadata took 0.03s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Khait\\AppData\\Roaming/RenPy/backups\\Project-Serene-Renpy':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.07s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.16s
+Cleaning stores took 0.00s
+Init translation took 0.10s
+Build styles took 0.03s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if current_slide is 1:
+game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  elif current_slide is 2:
+game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  elif current_slide is 3:
+Prepare screens took 0.12s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Fullscreen mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 555.99'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
+Maximum texture size: 4096x4096
+controller: '030000004c050000e60c000000016800' 'PS5 Controller' 1
+Resetting cache.
+Early init took 411.74s
+Loading error handling took 0.02s
+Loading script took 0.25s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.02s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Khait\\AppData\\Roaming/RenPy/backups\\Project-Serene-Renpy':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.07s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
+Cleaning stores took 0.00s
+Init translation took 0.11s
+Build styles took 0.03s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+game/character_animation.rpy:172: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if current_slide is 1:
+game/character_animation.rpy:175: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  elif current_slide is 2:
+game/character_animation.rpy:178: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  elif current_slide is 3:
+Prepare screens took 0.15s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Fullscreen mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3060/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 555.99'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
+Maximum texture size: 4096x4096
+controller: '030000004c050000e60c000000016800' 'PS5 Controller' 1

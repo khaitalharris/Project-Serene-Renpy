@@ -9,3 +9,20 @@ image return_icon:
     xysize (40, 40)
     matrixcolor ColorizeMatrix("#ffffffb4", "#ffffffe5")
 
+image serene_icon:
+    "Sunela"
+    yoffset 0
+    subpixel True
+
+image serene_icon_highlighted:
+    "Sunela"
+    yoffset 0
+    easein 0.1 yoffset -20
+    subpixel True
+
+image serene_icon_clicked:
+    "Sunela"
+    yoffset 0
+    easein 0.5 yoffset 200
+    subpixel True
+

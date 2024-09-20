@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/main/investigate_screen.rpy", line 94: expected ':' not found.
-    label chapter_select
-                        ^
+File "game/main/investigate_screen.rpy", line 14: expecting name after dot.
+    xalign 0.8 yalign 2.2.8
+                          ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sat Sep 14 16:46:23 2024
+Fri Sep 20 11:03:34 2024

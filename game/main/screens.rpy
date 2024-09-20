@@ -291,7 +291,7 @@ screen grid_choice(items, cols, rows, background = "unimportant"):
             else:
                 null
 
-screen choice(items, background="unimportant"):
+screen choice_return(items, background="unimportant"):
     style_prefix "choice"
 
     on "show" action Play("audio", "choice_show.mp3")
@@ -318,6 +318,23 @@ screen choice(items, background="unimportant"):
                 idle "return_icon"
                 action [Rollback()]
                 at [animated_button_show(i * time_delay), text_test(10,5,2.8,4.0), outline_transform(2, "#320efc67", smoothing= 5.0, mesh_pad=True)]
+    
+    on "hide" action Play("audio", "cl_flip_phone.mp3")
+
+screen choice(items, background="unimportant"):
+    style_prefix "choice"
+
+    on "show" action Play("audio", "choice_show.mp3")
+    default time_delay = 0.1
+
+    #add "gui/[background].png"
+    
+
+    vbox:
+        for i, item in enumerate(items, start=1):
+            textbutton item.caption:
+                action item.action
+                at [animated_button_show(i * time_delay), text_test(5,1,2.8,4.0)]
     
     on "hide" action Play("audio", "cl_flip_phone.mp3")
                 

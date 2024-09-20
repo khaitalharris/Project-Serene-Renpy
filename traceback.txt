@@ -1,10 +1,12 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story/chapter_1/chapter1.rpy", line 126, in script
-    menu annoying_devon1:
-  File "game/story/chapter_1/chapter1.rpy", line 126, in script
-    menu annoying_devon1:
+  File "game/story/chapter_1/chapter1.rpy", line 165, in script
+    call screen serene_icon
+  File "game/story/chapter_1/chapter1.rpy", line 165, in script
+    call screen serene_icon
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
 TypeError: 'str' object is not callable
 
 -- Full Traceback ------------------------------------------------------------
@@ -18,17 +20,21 @@ Full traceback:
     renpy.execution.run_context(True)
   File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\execution.py", line 955, in run_context
     context.run()
-  File "game/story/chapter_1/chapter1.rpy", line 126, in script
-    menu annoying_devon1:
+  File "game/story/chapter_1/chapter1.rpy", line 165, in script
+    call screen serene_icon
   File "lib/python3.9/future/utils/__init__.py", line 444, in raise_
-  File "game/story/chapter_1/chapter1.rpy", line 126, in script
-    menu annoying_devon1:
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1618, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\exports.py", line 1109, in menu
-    rv = renpy.store.menu(new_items)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\exports.py", line 1364, in display_menu
-    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
+  File "game/story/chapter_1/chapter1.rpy", line 165, in script
+    call screen serene_icon
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1968, in execute
+    self.call("execute")
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1950, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\statements.py", line 349, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\exports.py", line 3413, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
   File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ui.py", line 301, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2165, in interact
@@ -37,10 +43,10 @@ Full traceback:
     rv = renpy.display.focus.mouse_handler(ev, x, y)
   File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\focus.py", line 610, in mouse_handler
     return change_focus(new_focus, default=default)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\focus.py", line 543, in change_focus
-    rv = widget.focus(default=default)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\behavior.py", line 1013, in focus
-    rv = run(self.hovered)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\focus.py", line 529, in change_focus
+    current.unfocus(default=default)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\behavior.py", line 1029, in unfocus
+    run(self.unhovered)
   File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\behavior.py", line 395, in run
     return action(*args, **kwargs)
 TypeError: 'str' object is not callable
@@ -48,4 +54,4 @@ TypeError: 'str' object is not callable
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 Project Serene 1.2
-Sat Sep 14 14:48:25 2024
+Fri Sep 20 11:13:07 2024

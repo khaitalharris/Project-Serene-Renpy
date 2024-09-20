@@ -124,7 +124,9 @@ label start:
         narrator "A man peaks over the cubicle."
         $ renpy.say("", "A man peaks over the cubicle.", interact=False)
         call screen serene_office
-        menu annoying_devon1:
+        
+        #menu annoying_devon1 (screen = "grid_choice", cols = 3, rows = 1) :
+        menu annoying_devon1 (screen = "choice_return") :
                 narrator "A man peaks over the cubicle." 
                 "Finish typing your e-mail.":
                     jump ignore_devon
@@ -142,6 +144,7 @@ label start:
         jump see_devon
 
         label see_devon: # - Delete this label later if no longer useful.
+            
             Devon "Hey, Serene!"
             extend " Can I borrow your pen real fast?"
             Devon "I think I dropped it somewhere on my way back here."
@@ -872,10 +875,10 @@ label start:
             Panna "Interesting, that's a new response...{w=1.5}Wait, Serene!" 
             Panna "Choose your words carefully! I have an awful premonition about this."
             $ renpy.say("Panna", "Choose your words carefully! I have an awful premonition about this.", interact=False) # renpy.say keeps the dialogue in place after calling a screen.
-            $ chapter1_status = 3
-            call screen serene_office_chapter1 
+            $ chapter_status = 3
+            call screen serene_office 
 
-        menu:
+        menu (screen = "choice_return"):
             Panna "Choose your words carefully! I have an awful premonition about this."
             "Investigate the statue.":
                 jump investigate
