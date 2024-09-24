@@ -1,6 +1,10 @@
 
-# This script contains all of the labels used in the "Investigation" prompt for Chapter 1. We use the "return()" line at the end of each block.
-# (Otherwise, the game will just continue to read the rest of the text down the page, and we don't want that lmao.)
+########### Investigate(!) Screen Labels ########################
+
+#This script contains all of the labels used in the "Investigation" screen for Chapter 1. We use the "return()" line at the end of each block.
+#(Otherwise, the game will just continue to read the rest of the text down the page, and we don't want that lmao.)
+#
+
 ##################################
 # - "Think" prompts.
 label chapter1_think: 

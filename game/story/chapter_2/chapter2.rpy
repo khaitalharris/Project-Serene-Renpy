@@ -1,4 +1,5 @@
 ﻿label chapter2:
+    $ chapter_status = 2
     scene town_street_night 
     with fade
     play ambience "ambience/night.mp3" volume 0.2

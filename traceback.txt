@@ -1,57 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story/chapter_1/chapter1.rpy", line 165, in script
-    call screen serene_icon
-  File "game/story/chapter_1/chapter1.rpy", line 165, in script
-    call screen serene_icon
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-TypeError: 'str' object is not callable
+  File "game/story/chapter_1/chapter1.rpy", line 69, in script call
+    call subroutine (=+1)
+  File "game/story/chapter_1/chapter1.rpy", line 77, in script
+    label subroutine(count=1):
+SyntaxError: invalid syntax (game/story/chapter_1/chapter1.rpy, line 69)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\bootstrap.py", line 359, in bootstrap
-    renpy.main.main()
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\main.py", line 635, in main
-    run(restart)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\main.py", line 145, in run
-    renpy.execution.run_context(True)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\execution.py", line 955, in run_context
-    context.run()
-  File "game/story/chapter_1/chapter1.rpy", line 165, in script
-    call screen serene_icon
-  File "lib/python3.9/future/utils/__init__.py", line 444, in raise_
-  File "game/story/chapter_1/chapter1.rpy", line 165, in script
-    call screen serene_icon
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1968, in execute
-    self.call("execute")
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1950, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\statements.py", line 349, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\exports.py", line 3413, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 2165, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\core.py", line 3196, in interact_core
-    rv = renpy.display.focus.mouse_handler(ev, x, y)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\focus.py", line 610, in mouse_handler
-    return change_focus(new_focus, default=default)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\focus.py", line 529, in change_focus
-    current.unfocus(default=default)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\behavior.py", line 1029, in unfocus
-    run(self.unhovered)
-  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\display\behavior.py", line 395, in run
-    return action(*args, **kwargs)
-TypeError: 'str' object is not callable
+  File "game/story/chapter_1/chapter1.rpy", line 69, in script call
+    call subroutine (=+1)
+  File "game/story/chapter_1/chapter1.rpy", line 77, in script
+    label subroutine(count=1):
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\ast.py", line 1421, in execute
+    args, kwargs = self.arguments.evaluate()
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\parameter.py", line 477, in evaluate
+    value = renpy.python.py_eval(v, locals=scope)
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\python.py", line 1207, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\python.py", line 1144, in py_compile
+    raise e
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\python.py", line 1081, in py_compile
+    raise orig_e
+  File "C:\Users\Khait\OneDrive\Documents\renpy-8.2.1-sdk\renpy\python.py", line 1073, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/story/chapter_1/chapter1.rpy, line 69)
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 Project Serene 1.2
-Fri Sep 20 11:13:07 2024
+Tue Sep 24 11:02:48 2024

@@ -77,7 +77,7 @@ screen vertical_list(enc):
 #        enc (Encyclopaedia): The encyclopaedia to use on this screen.
 ################################################################################
 screen encyclopaedia_list(enc):
-    add "abstract_background.jpg"
+    #add "abstract_background.jpg"
     tag menu
     modal True
     
@@ -155,7 +155,7 @@ screen encyclopaedia_list(enc):
                         ymaximum 1.0
 
                         viewport:
-                            scrollbars "vertical"
+                            #scrollbars "vertical"
                             mousewheel True
                             draggable True
 
@@ -265,7 +265,7 @@ screen encyclopaedia_entry(enc):
                         ymaximum 0.846
 
                     viewport:
-                        scrollbars "vertical"
+                        #scrollbars "vertical"
                         mousewheel True
                         draggable True
                         vbox:

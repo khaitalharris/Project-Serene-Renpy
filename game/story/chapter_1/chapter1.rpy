@@ -1,26 +1,11 @@
 ﻿
 # - This is the main script for Chapter 1 of Project Serene. Includes the code for an opening Splashscreen, and the variable for Encyclopaedia. 
 # - (I'll move both of these into a seperate script later.)
-# - We can temporarily stop the roll-back feature by using:
-#label start:
-#    "Dialogue 1"
-#    "Dialogue 2"
-#    "Dialogue 3"
-#    $ config.rollback_enabled = False
-#    "Dialogue 4"
-#    "Dialogue 5"
-#    $ renpy.block_rollback()
-#    $ config.rollback_enabled = True
-#   "Dialogue 6"
-#   "Dialogue 7"
-# "So basically the player can roll back to 1 as late as 3. They can't roll back at all after that until they get to 7."
-# "The "block rollback" line serves to purge the history of 4 and 5." https://www.reddit.com/r/RenPy/comments/qaxfh0/is_it_possible_to_disable_rollback_for_a_portion/
-
 
 #######################################
 
 $ Encyclopaedia = True # Will probably delete later. Testing out the "Encyclopaedia" script.
-
+default mtt = MouseTooltip(Text(""), padding={"x": 10, "y": -10}) # - Testing out a function where a message prompt appears when you hover over stuff.
 #######################################
 label splashscreen:
     scene black
@@ -47,15 +32,16 @@ label splashscreen:
 label start:
         #jump outline_test
         label chapter1: # - calDate is setting up today's date for the "Time" screen. "store.theweekday" sets up the day of the week. We hide the quickmenu.
-        $ calDate = calDate.replace(second=10, hour=12, minute=30, day=3, month=4, year=1503)
-        $ store.theweekday = 3
+        $ calDate = calDate.replace(second=10, hour=12, minute=30, day=15, month=4, year=2018)
+        $ store.theweekday = 5
         $ quick_menu = False
         $ chapter_status = 1
         stop music
         scene black
-        default mtt = MouseTooltip(Text(""), padding={"x": 10, "y": -10}) # - Testing out a function where a message prompt appears when you hover over stuff.
         call screen tooltip_test # - The screen for the message prompt.
         show screen DayDisplay
+        call calendar(1)
+        $ store.theweekday += 1
         show text "Monday, April 16th." with fade
         with Pause(3)
         hide text with fade
@@ -70,9 +56,12 @@ label start:
         #show screen DayDisplay
         play ambience "office.mp3" loop volume 0.5
         $ quick_menu = True
+
+        # after all choices have been seen game will automatically resume here
         narrator "The fading sunlight streams through the office windows." 
         narrator "The warm, 4 P.M. glow slowly losing its battle to the cold, fluorescent lights." 
-        narrator "You hear muffled chatter around your cubicle."
+        narrator "You hear muffled chatter around your cubicle."            
+        
         #show npc1 at left, flip   
         show npc1_name at left:
             yrotate 180.0 
@@ -125,7 +114,6 @@ label start:
         $ renpy.say("", "A man peaks over the cubicle.", interact=False)
         call screen serene_office
         
-        #menu annoying_devon1 (screen = "grid_choice", cols = 3, rows = 1) :
         menu annoying_devon1 (screen = "choice_return") :
                 narrator "A man peaks over the cubicle." 
                 "Finish typing your e-mail.":
@@ -148,18 +136,7 @@ label start:
             Devon "Hey, Serene!"
             extend " Can I borrow your pen real fast?"
             Devon "I think I dropped it somewhere on my way back here."
-            
-            #Alternate choice screen is -  (screen = "grid_choice", cols = 3, rows = 1)
-            #After unlocking your first "Context" display an information box description.
-            #menu annoying_devon1:
-                #extend "" 
-                #"Ignore him.":
-                    #jump ignore_devon
-                #"Humor him.":
-                    #$ renpy.notify("You've unlocked: Context (!)")
-                    #pause(1.5)
-                    #$ wall_break = True
-                    #jump ignore_devon
+        
 
         label ignore_devon:       
             Devon "Hey, Serene!"
@@ -224,10 +201,6 @@ label start:
             show Serene mad:
                 ypos -0.12 yrotate 207.0 
             window show
-
-
-
-
 
             Serene "Devon, I appreciate you but please. I just—" 
             #show office with hpunch 

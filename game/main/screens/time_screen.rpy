@@ -105,7 +105,7 @@ screen serene_room():
 
 ##############################################################################################################
 # Time of Day Screens for the Day Display. Displays Morning, Afternoon, and Evening. Will still need an early morning display.
-screen DayDisplay:
+screen DayDisplay():
     zorder 1
     #add "overlay3.png"
     add "wavy_overlay"
@@ -125,7 +125,7 @@ screen DayDisplay:
     vbox:
             ypos 0 xpos 10
             at transform:
-                #outline_transform(4, "#ffffff", mesh_pad=True)
+                outline_transform(4, "#ffffff", mesh_pad=True)
                 glow_outline(5, "#ffffffff", num_passes=30, power=1, mesh_pad=True)
                 subpixel True
             text "{=date_s}[calDate.month]" + "/" + "[calDate.day]{/=date_s}" ypos 18 

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/main/investigate_screen.rpy", line 14: expecting name after dot.
-    xalign 0.8 yalign 2.2.8
-                          ^
+File "game/main/scripts/example_code.rpy", line 98: screen expects a non-empty block.
+    screen john_relationship_info():
+                                    ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri Sep 20 11:03:34 2024
+Tue Sep 24 11:23:50 2024

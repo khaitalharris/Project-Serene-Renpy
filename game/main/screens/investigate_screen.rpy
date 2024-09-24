@@ -9,7 +9,7 @@
 ### This is the code for the investigate Screen's Icon. The icon is a chibi version of Serene that the player can click.
 ### The icon shows an (!) when new interactable things that haven't been clicked yet are available.
 
-screen serene_icon:
+screen serene_icon():
     imagebutton:
         xalign 1.0 yalign 2.5
         focus_mask True
@@ -22,7 +22,7 @@ screen serene_icon:
 
 ### The Investigate screen is what the player uses to interact with the game. There is a seperate version of this screen for each chapter, but I need to streamline the system. 
 ### Having the same code copied across multiple chapters is a big nono, so working on that next.
-screen serene_office:
+screen serene_office():
     on "show" action [Play("audio", "sword_draw.mp3"), mtt.Action(Text(""))]
     
     add "#ffffff7e":
@@ -125,7 +125,7 @@ label chapter_select:
     
 
 ## Leaving this here as a example of the old version of the screen.
-screen serene_office_example:
+screen serene_office_example():
     ## Play audio of "ShING!" when the screen slides in. The "mtt.Action" bit of code is used to get rid of any tool-tip text that might show up from previous screens ##
     on "show" action [Play("audio", "sword_draw.mp3"), mtt.Action(Text(""))]
     

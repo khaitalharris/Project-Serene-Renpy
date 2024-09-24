@@ -79,7 +79,7 @@ layeredimage npc1_name:
         attribute mouth_C:
             "mouth_open.png"
         attribute mouth_D:
-            "mouth_open.png"
+            "mouth_half.png"
         attribute mouth_E:
             "mouth_open.png"
         attribute mouth_F:
@@ -87,7 +87,7 @@ layeredimage npc1_name:
         attribute mouth_G:
             "mouth_half.png"
         attribute mouth_H:
-            "mouth_half.png"
+            "mouth_open.png"
         attribute mouth_X default:
             "mouth_closed.png"
 
